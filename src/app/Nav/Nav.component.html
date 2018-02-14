@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Map</a>
-            <a class="nav-item nav-link" href="#">Data</a>
-            <a class="nav-item nav-link" href="#">Settings</a>
-            <a class="nav-item nav-link disabled" href="#">Admin Settings</a>
+            <a [routerLink]="['/map']" class="nav-item nav-link" href="#">Map</a>
+            <a [routerLink]="['/data']" class="nav-item nav-link" href="#">Data</a>
+            <a [routerLink]="['/settings']" class="nav-item nav-link" href="#">Settings</a>
+            <a [routerLink]="['/admin']" class="nav-item nav-link disabled" href="#">Admin Settings</a>
         </div>
     </div>
 </nav>

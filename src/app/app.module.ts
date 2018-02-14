@@ -8,7 +8,6 @@ import { NavComponent } from './Nav/Nav.component';
 import { HomeComponent } from './Home/Home.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { MapViewComponent } from './map-view/map-view.component';
-import { DataComponentComponent } from './data-component/data-component.component';
 import { DataComponent } from './data/data.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
@@ -22,7 +21,6 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
     HomeComponent,
     LogInComponent,
     MapViewComponent,
-    DataComponentComponent,
     DataComponent,
     SettingsComponent,
     AdminSettingsComponent
@@ -33,8 +31,11 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
     RouterModule.forRoot([
       { path: "home", component: HomeComponent},      
       { path: "", redirectTo: "home", pathMatch: "full"},
-      { path: "**", component: PageNotFoundComponent},
-      { path: "mapview", component: MapViewComponent}     
+      /*{ path: "**", component: PageNotFoundComponent},*/
+      { path: "map", component: MapViewComponent},
+      { path: "data", component: DataComponent},
+      { path: "settings", component: SettingsComponent},
+      { path: "admin", component: AdminSettingsComponent}     
     ], {useHash: true})
   ],
   schemas:[NO_ERRORS_SCHEMA],
