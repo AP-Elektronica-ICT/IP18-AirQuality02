@@ -6,6 +6,12 @@ import { RouterModule} from '@angular/router';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 import { NavComponent } from './Nav/Nav.component';
 import { HomeComponent } from './Home/Home.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { MapViewComponent } from './map-view/map-view.component';
+import { DataComponentComponent } from './data-component/data-component.component';
+import { DataComponent } from './data/data.component';
+import { SettingsComponent } from './settings/settings.component';
+import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 
 
 @NgModule({
@@ -13,7 +19,13 @@ import { HomeComponent } from './Home/Home.component';
     AppComponent,
     PageNotFoundComponent,
     NavComponent,
-    HomeComponent
+    HomeComponent,
+    LogInComponent,
+    MapViewComponent,
+    DataComponentComponent,
+    DataComponent,
+    SettingsComponent,
+    AdminSettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +33,8 @@ import { HomeComponent } from './Home/Home.component';
     RouterModule.forRoot([
       { path: "home", component: HomeComponent},      
       { path: "", redirectTo: "home", pathMatch: "full"},
-      { path: "**", component: PageNotFoundComponent}     
+      { path: "**", component: PageNotFoundComponent},
+      { path: "mapview", component: MapViewComponent}     
     ], {useHash: true})
   ],
   schemas:[NO_ERRORS_SCHEMA],

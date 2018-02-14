@@ -1,13 +1,18 @@
-<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark green scrolling-navbar" [containerInside]="false">
-    <logo>
-        <a class="logo navbar-brand" href="#"><strong>Air Quality Control</strong></a>
-    </logo>
-    <links>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item waves-light" [routerLinkActive] = "['Active']" mdbRippleRadius>
-                <a class="nav-link" [routerLink] = "['/home']">Home <span class="sr-only">(current)</span></a>
-            </li>
-        </ul>
-    </links>
-</mdb-navbar>
+                
+<nav class="navbar navbar-expand-lg navbar-dark indigo">
+    <a class="navbar-brand" href="#">Air Quality System</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Map</a>
+            <a class="nav-item nav-link" href="#">Data</a>
+            <a class="nav-item nav-link" href="#">Settings</a>
+            <a class="nav-item nav-link disabled" href="#">Admin Settings</a>
+        </div>
+    </div>
+</nav>
         
