@@ -11,6 +11,7 @@ import { MapViewComponent } from './map-view/map-view.component';
 import { DataComponent } from './data/data.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
+import { DetailedDataComponent } from './detailed-data/detailed-data.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
     MapViewComponent,
     DataComponent,
     SettingsComponent,
-    AdminSettingsComponent
+    AdminSettingsComponent,
+    DetailedDataComponent
   ],
   imports: [
     BrowserModule,
