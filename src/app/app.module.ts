@@ -52,8 +52,8 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    //AngularFireModule.initializeApp(firebaseConfig),
-    //AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
       { path: "", redirectTo: "home", pathMatch: "full" },
