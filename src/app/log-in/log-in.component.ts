@@ -13,19 +13,26 @@ import { Router } from '@angular/router';
 })
 export class LogInComponent {
 
-  constructor(
-    private authService: AuthService) { }
+  state: string = '';
+    error: any;
 
-  ngOnInit() {}
+    constructor(public af: AngularFireModule,private router: Router) {
+    this.af.auth.subscribe(auth => { 
+      if(auth) {
+        this.router.navigateByUrl('/members');
+      }
+    });
+  }
+
 
   onSubmit(formData) {
-    if (formData.valid) {
+    if(formData.valid) {
       console.log(formData.value);
       this.authService.login(
         formData.value.email,
         formData.value.password
       );
     }
-  }
+  }*/
 
 }

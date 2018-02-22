@@ -1,5 +1,21 @@
-<p>Data works!</p>
-<br>
-<div *ngIf="chart">
-  <canvas id="canvas">{{ chart }}</canvas>
-</div>
+<script src="..\..\..\node_modules\chart.js\src\chart.js"></script>
+  <div class="col-md-6" style="margin:0px auto; margin-top: 20px;">
+    <div style="display: block;">
+      <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+        [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
+        (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <button (click)="randomize()">CLICK</button>
+  </div>
+  
+  <!-- <div class="col-md-6" style="margin:0px auto;">
+    <table class="table table-responsive table-condensed">
+      <tr>
+        <th *ngFor="let label of lineChartLabels">{{label}}</th>
+      </tr>
+      <tr *ngFor="let d of lineChartData">
+        <td *ngFor="let label of lineChartLabels; let j=index">{{d && d.data[j]}}</td>
+      </tr>
+    </table>
+  </div> -->
+  
