@@ -1,23 +1,23 @@
 <br>
 <div class="container">
     <!-- Login form -->
-    <form>
+    <form #formdata='ngForm' (ngSubmit)='onSubmit(formdata)'>
         <p class="h5 text-center mb-4">Sign Up</p>
 
         <div class="md-form">
             <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="text" id="defaultForm-email" class="form-control" mdbActive>
+            <input type="text" id="defaultForm-email" (ngModel)="email" class="form-control" mdbActive>
             <label for="defaultForm-email">Your email</label>
         </div>
 
         <div class="md-form">
             <i class="fa fa-lock prefix grey-text"></i>
-            <input type="password" id="defaultForm-pass" class="form-control" mdbActive>
+            <input type="password" id="defaultForm-pass" (ngModel)="password" class="form-control" mdbActive>
             <label for="defaultForm-pass">Your password</label>
         </div>
 
         <div class="text-center">
-            <button class="btn btn-default waves-light" mdbRippleRadius>Create account</button>
+            <button type="submit" class="btn btn-default waves-light" mdbRippleRadius>Create account</button>
         </div>
     </form>
     <!-- Login form -->

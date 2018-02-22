@@ -23,7 +23,7 @@ export class AuthService {
   emailSignup(email: string, password: string) {
     this.afAuth.auth.createUserWithEmailAndPassword(email, password)
     .then(value => {
-     console.log('Sucess', value);
+     console.log('Success', value);
      this.router.navigateByUrl('/login');
     })
     .catch(error => {
