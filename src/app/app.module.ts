@@ -12,6 +12,8 @@ import { DataComponent } from './data/data.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 import { DetailedDataComponent } from './detailed-data/detailed-data.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AirQualityDataService } from './[Services]/air-quality-data.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
@@ -36,10 +38,11 @@ const firebaseConfig = {
     DataComponent,
     SettingsComponent,
     AdminSettingsComponent,
-    DetailedDataComponent
+    DetailedDataComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
@@ -53,8 +56,8 @@ const firebaseConfig = {
       { path: "admin", component: AdminSettingsComponent }
     ], { useHash: true })
   ],
-  schemas: [NO_ERRORS_SCHEMA],
-  providers: [],
+  schemas:[NO_ERRORS_SCHEMA],
+  providers: [AirQualityDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
