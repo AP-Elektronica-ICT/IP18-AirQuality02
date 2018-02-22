@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ChartsModule } from 'ng2-charts';
 import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './PageNotFound/PageNotFound.component';
 import { NavComponent } from './Nav/Nav.component';
@@ -41,6 +42,7 @@ const firebaseConfig = {
     DetailedDataComponent,
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
