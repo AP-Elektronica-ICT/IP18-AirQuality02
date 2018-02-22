@@ -1,5 +1,5 @@
 <script src="..\..\..\node_modules\chart.js\src\chart.js"></script>
-  <div class="col-md-6" style="margin:0px auto; margin-top: 20px;">
+  <div class="col-md-6" style="margin:0px auto; margin-top: 50px;">
     <div style="display: block;">
       <canvas baseChart width="400" height="200" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
         [colors]="lineChartColors" [legend]="lineChartLegend" [chartType]="lineChartType" (chartHover)="chartHovered($event)"
@@ -7,6 +7,8 @@
     </div>
     <button (click)="randomize()">CLICK</button>
   </div>
+  
+  <!-- table view of the randomized data -->
   
   <!-- <div class="col-md-6" style="margin:0px auto;">
     <table class="table table-responsive table-condensed">

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Chart } from 'Chart.js';
 
 @Component({
   selector: 'app-data',
