@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
-import { AngularFireModule} from 'angularfire2';
+//import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
+//import { AngularFireModule} from 'angularfire2';
 
 import { Router } from '@angular/router';
 
@@ -14,17 +14,19 @@ export class LogInComponent{
 
   state: string = '';
     error: any;
+    constructor() { }
 
-    constructor(public af: AngularFireModule,private router: Router) {
+  ngOnInit() {
+  }
+    /*constructor(public af: AngularFireModule,private router: Router) {
     this.af.auth.subscribe(auth => { 
       if(auth) {
         this.router.navigateByUrl('/members');
       }
-    });
-  }
+    });*/
 
 
-  onSubmit(formData) {
+  /*onSubmit(formData) {
     if(formData.valid) {
       console.log(formData.value);
       this.af.auth.login({
@@ -44,6 +46,6 @@ export class LogInComponent{
         this.error = err;
       })
     }
-  }
+  }*/
 
 }

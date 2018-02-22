@@ -14,8 +14,8 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
 import { DetailedDataComponent } from './detailed-data/detailed-data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AirQualityDataService } from './[Services]/air-quality-data.service';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
+//import { AngularFireModule } from 'angularfire2';
+//import { AngularFireAuthModule } from 'angularfire2/auth';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -44,8 +44,8 @@ const firebaseConfig = {
     BrowserModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
+    //AngularFireModule.initializeApp(firebaseConfig),
+    //AngularFireAuthModule,
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
       { path: "", redirectTo: "home", pathMatch: "full" },
