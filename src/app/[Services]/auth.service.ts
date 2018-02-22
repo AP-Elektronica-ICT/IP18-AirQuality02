@@ -14,15 +14,25 @@ export class AuthService {
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then(value => {
         console.log('Nice, it worked!');
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/settings');
       })
       .catch(err => {
         console.log('Something went wrong: ', err.message);
       });
   }
+  emailSignup(email: string, password: string) {
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
+    .then(value => {
+     console.log('Sucess', value);
+     this.router.navigateByUrl('/login');
+    })
+    .catch(error => {
+      console.log('Something went wrong: ', error);
+    });
+  }
   logout() {
     this.afAuth.auth.signOut().then(() => {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
     });
   }
   private oAuthLogin(provider) {

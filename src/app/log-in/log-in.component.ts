@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-//import { AngularFire, AuthProviders, AuthMethods } from 'angularfire2';
-//import { AngularFireModule} from 'angularfire2';
-
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from 'firebase/app';
+import { AngularFireModule } from 'angularfire2';
+import { AuthService } from '../[Services]/auth.service';
 import { Router } from '@angular/router';
 
 
@@ -10,42 +11,21 @@ import { Router } from '@angular/router';
   templateUrl: './log-in.component.html',
   styleUrls: ['./log-in.component.scss']
 })
-export class LogInComponent{
+export class LogInComponent {
 
-  state: string = '';
-    error: any;
-    constructor() { }
+  constructor(
+    private authService: AuthService) { }
 
-  ngOnInit() {
-  }
-    /*constructor(public af: AngularFireModule,private router: Router) {
-    this.af.auth.subscribe(auth => { 
-      if(auth) {
-        this.router.navigateByUrl('/members');
-      }
-    });*/
+  ngOnInit() {}
 
-
-  /*onSubmit(formData) {
-    if(formData.valid) {
+  onSubmit(formData) {
+    if (formData.valid) {
       console.log(formData.value);
-      this.af.auth.login({
-        email: formData.value.email,
-        password: formData.value.password
-      },
-      {
-        provider: AuthProviders.Password,
-        method: AuthMethods.Password,
-      }).then(
-        (success) => {
-        console.log(success);
-        this.router.navigate(['/members']);
-      }).catch(
-        (err) => {
-        console.log(err);
-        this.error = err;
-      })
+      this.authService.login(
+        formData.value.email,
+        formData.value.password
+      );
     }
-  }*/
+  }
 
 }
