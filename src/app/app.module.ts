@@ -16,6 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AirQualityDataService } from './[Services]/air-quality-data.service';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './[Services]/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignupComponent } from './Signup/signup.component';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -39,10 +42,13 @@ const firebaseConfig = {
     SettingsComponent,
     AdminSettingsComponent,
     DetailedDataComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
@@ -53,11 +59,13 @@ const firebaseConfig = {
       { path: "map", component: MapViewComponent },
       { path: "data", component: DataComponent },
       { path: "settings", component: SettingsComponent },
-      { path: "admin", component: AdminSettingsComponent }
+      { path: "admin", component: AdminSettingsComponent },
+      { path: "signup", component: SignupComponent }
     ], { useHash: true })
   ],
   schemas:[NO_ERRORS_SCHEMA],
-  providers: [AirQualityDataService],
+  providers: [AirQualityDataService, AuthService],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
