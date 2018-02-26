@@ -1,24 +1,26 @@
 <br>
 <!-- Login form -->
-<form #formdata='ngForm' (ngSubmit)='onSubmit(formdata)'>
+<form *ngIf="!(authService.user | async)">
     <p class="h5 text-center mb-4">Sign in</p>
 
     <div class="md-form">
         <i class="fa fa-envelope prefix grey-text"></i>
-        <input type="text" id="defaultForm-email" (ngModel)="email" class="form-control" mdbActive>
+        <input type="email" id="defaultForm-email" [(ngModel)]="email" #ctrl="ngModel" class="form-control" mdbActive>
         <label for="defaultForm-email">Your email</label>
     </div>
 
     <div class="md-form">
         <i class="fa fa-lock prefix grey-text"></i>
-        <input type="password" id="defaultForm-pass" (ngModel)="password" class="form-control" mdbActive>
+        <input type="password" id="defaultForm-pass" [(ngModel)]="password" #ctrl="ngModel" class="form-control" mdbActive>
         <label for="defaultForm-pass">Your password</label>
     </div>
 
     <div class="text-center">
-        <button type="submit" class="btn btn-default waves-light" mdbRippleRadius>Login</button>
+        <button type="submit" (ngSubmit)="login()" class="btn btn-default waves-light" mdbRippleRadius>Login</button>
     </div>
 </form>
 <p class="text-center">
-    <a routerLink="/signup" routerLinkActive="active" class="text-center">No account?<strong> Create one here</strong></a>
+    <a routerLink="/signup" routerLinkActive="active" class="text-center">No account?
+        <strong> Create one here</strong>
+    </a>
 </p>

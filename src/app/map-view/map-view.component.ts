@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { IRootObject, AirQualityDataService } from '../[Services]/air-quality-data.service';
 
 @Component({
   selector: 'app-map-view',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapViewComponent implements OnInit {
 
-  constructor() { }
+  airqualitydata: IRootObject
+
+  constructor(private _svc: AirQualityDataService) { }
 
   ngOnInit() {
+    this._svc.getAirQualityData()
+    .subscribe(result => this.airqualitydata = result)
   }
 
 }

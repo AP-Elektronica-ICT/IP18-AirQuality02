@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import { AngularFireModule } from 'angularfire2';
 import { AuthService } from '../[Services]/auth.service';
 import { Router } from '@angular/router';
+import { NgModel } from '@angular/forms';
 
 
 @Component({
@@ -12,9 +13,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./log-in.component.scss']
 })
 export class LogInComponent {
-
+  email: string;
+  password: string;
   constructor(
-    private authService: AuthService) { }
+    public authService: AuthService) { }
 
   ngOnInit() {}
 
@@ -28,4 +30,8 @@ export class LogInComponent {
     }
   }
 
+  login(){
+    this.authService.login(this.email, this.password);
+    this.email = this.password = '';
+  }
 }
