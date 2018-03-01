@@ -1,13 +1,27 @@
 <div class="container" style="margin-top:15px;">
   <div class="row">
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item">Room 101</li>
-            <li class="list-group-item">Room 102</li>
-            <li class="list-group-item">Room 103</li>
-            <li class="list-group-item">Room 104</li>
-            <li class="list-group-item">Room 105</li>
-          </ul>
+    <div class="col">
+      <ul class="list-group">
+        <li class="list-group-item" [ngStyle]="{'background-color': getColor(22)}">Room 101</li>
+        <li class="list-group-item">Room 102</li>
+        <li class="list-group-item">Room 103</li>
+        <li class="list-group-item">Room 104</li>
+        <li class="list-group-item">Room 105</li>
+      </ul>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Room</th>
+            <th>Temperature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let roominfo of rooms">
+            <td>{{roominfo.room}}</td>
+            <td [ngStyle]="{'background-color': getColor(roominfo.temperature)}">{{roominfo.temperature}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="col">
       <!--Radio group-->

@@ -15,22 +15,11 @@ import { AdminSettingsComponent } from './admin-settings/admin-settings.componen
 import { DetailedDataComponent } from './detailed-data/detailed-data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AirQualityDataService } from './[Services]/air-quality-data.service';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './[Services]/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './Signup/signup.component';
 import { TestMapComponent } from './TestMap/testmap.component';
 
-// Initialize Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyCVFb-O5xNQt6BnDGb2e8OUqVYxqEwIh5o",
-  authDomain: "airquality-cb69a.firebaseapp.com",
-  databaseURL: "https://airquality-cb69a.firebaseio.com",
-  projectId: "airquality-cb69a",
-  storageBucket: "airquality-cb69a.appspot.com",
-  messagingSenderId: "59137669043"
-};
 
 @NgModule({
   declarations: [
@@ -54,8 +43,6 @@ const firebaseConfig = {
     FormsModule,
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
     RouterModule.forRoot([
       { path: "home", component: HomeComponent },
       { path: "", redirectTo: "home", pathMatch: "full" },
@@ -70,7 +57,6 @@ const firebaseConfig = {
   ],
   schemas:[NO_ERRORS_SCHEMA],
   providers: [AirQualityDataService, AuthService],
-  
   bootstrap: [AppComponent]
 })
 export class AppModule { }
