@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './[Services]/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './Signup/signup.component';
+import { TestMapComponent } from './TestMap/testmap.component';
 
 // Initialize Firebase
 const firebaseConfig = {
@@ -43,7 +44,8 @@ const firebaseConfig = {
     SettingsComponent,
     AdminSettingsComponent,
     DetailedDataComponent,
-    SignupComponent
+    SignupComponent,
+    TestMapComponent
   ],
   imports: [
     ChartsModule,
@@ -62,7 +64,8 @@ const firebaseConfig = {
       { path: "data", component: DataComponent },
       { path: "settings", component: SettingsComponent },
       { path: "admin", component: AdminSettingsComponent },
-      { path: "signup", component: SignupComponent }
+      { path: "signup", component: SignupComponent },
+      { path: "testmap", component: TestMapComponent}
     ], { useHash: true })
   ],
   schemas:[NO_ERRORS_SCHEMA],

@@ -1,0 +1,12 @@
+.Rooms{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:black;
+    border:1px solid rgb(255, 174, 0);
+    cursor:pointer;
+}
+
+.Rooms:hover{
+    border:1px solid #c60;
+}
