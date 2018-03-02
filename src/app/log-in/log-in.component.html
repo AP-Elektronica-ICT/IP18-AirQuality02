@@ -1,22 +1,22 @@
 <br>
 <!-- Login form -->
-<form *ngIf="!(authService.user | async)">
+<form>
     <p class="h5 text-center mb-4">Sign in</p>
 
     <div class="md-form">
         <i class="fa fa-envelope prefix grey-text"></i>
-        <input type="email" id="defaultForm-email" [(ngModel)]="email" #ctrl="ngModel" class="form-control" mdbActive>
+        <input type="email" id="defaultForm-email" (ngModel)="email" #ctrl="ngModel" class="form-control" mdbActive>
         <label for="defaultForm-email">Your email</label>
     </div>
 
     <div class="md-form">
         <i class="fa fa-lock prefix grey-text"></i>
-        <input type="password" id="defaultForm-pass" [(ngModel)]="password" #ctrl="ngModel" class="form-control" mdbActive>
+        <input type="password" id="defaultForm-pass" (ngModel)="password" #ctrl="ngModel" class="form-control" mdbActive>
         <label for="defaultForm-pass">Your password</label>
     </div>
 
     <div class="text-center">
-        <button type="submit" (ngSubmit)="login()" class="btn btn-default waves-light" mdbRippleRadius>Login</button>
+        <button type="submit" (ngSubmit)="onSubmit()" class="btn btn-default waves-light" mdbRippleRadius>Login</button>
     </div>
 </form>
 <p class="text-center">
@@ -24,3 +24,17 @@
         <strong> Create one here</strong>
     </a>
 </p>
+
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCrqd_ezeTO9SIKhL2YXHQw_FDj_bmIUTU",
+    authDomain: "air-quality-system.firebaseapp.com",
+    databaseURL: "https://air-quality-system.firebaseio.com",
+    projectId: "air-quality-system",
+    storageBucket: "air-quality-system.appspot.com",
+    messagingSenderId: "269581291516"
+  };
+  firebase.initializeApp(config);
+</script>

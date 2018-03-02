@@ -1,13 +1,20 @@
 <div class="container" style="margin-top:15px;">
   <div class="row">
-    <div>
-        <ul class="list-group">
-            <li class="list-group-item">Room 101</li>
-            <li class="list-group-item">Room 102</li>
-            <li class="list-group-item">Room 103</li>
-            <li class="list-group-item">Room 104</li>
-            <li class="list-group-item">Room 105</li>
-          </ul>
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Room</th>
+            <th>Temperature</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let roominfo of rooms">
+            <td>{{roominfo.room}}</td>
+            <td [ngStyle]="{'background-color': getColor(roominfo.temperature)}">{{roominfo.temperature}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="col">
       <!--Radio group-->
@@ -38,7 +45,61 @@
       <!--Radio group-->
     </div>
     <div class="col">
-      <app-detailed-data></app-detailed-data>
+      <ul class="list-group" *ngFor="let roominfo of rooms">
+        <li class="list-group-item active">
+          {{roominfo.room}}
+        </li>
+        <li class="list-group-item li-fix">
+          <div class="row">
+            <div class="col-md-8">
+              Temperature
+            </div>
+            <div class="col-md-4">
+              {{roominfo.temperature}}°c
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item li-fix">
+          <div class="row">
+            <div class="col-md-8">
+              Humidity
+            </div>
+            <div class="col-md-4">
+              {{roominfo.humidity}}%
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item li-fix">
+          <div class="row">
+            <div class="col-md-8">
+              CO2-level
+            </div>
+            <div class="col-md-4">
+              {{roominfo.co2level}} ppm
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item li-fix">
+          <div class="row">
+            <div class="col-md-8">
+              Sound-level
+            </div>
+            <div class="col-md-4">
+              {{roominfo.soundlevel}} dB
+            </div>
+          </div>
+        </li>
+        <li class="list-group-item li-fix">
+          <div class="row">
+            <div class="col-md-8">
+              Illuminance
+            </div>
+            <div class="col-md-4">
+             {{roominfo.illuminance}} lux
+            </div>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </div>
