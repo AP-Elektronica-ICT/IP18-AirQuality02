@@ -1,25 +1,25 @@
 <div *ngFor="let dt of data">
   <div style="position:absolute; left: 100px; top: 100px;
-        height:100px; width: 100px;" class="Rooms" (click)="detailedData(101)">
+        height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(101)">
     <p>101</p>
   </div>
   <div style="position:absolute; left: 199px; top: 100px;
-        height:150px; width: 150px;" class="Rooms" (click)="detailedData(102)">
+        height:150px; width: 150px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(102)">
 
     <p>102</p>
   </div>
   <div style="position:absolute; left: 100px; top: 280px;
-        height:100px; width: 100px;" class="Rooms" (click)="detailedData(103)">
+        height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(103)">
 
     <p>103</p>
   </div>
   <div style="position:absolute; left: 199px; top: 280px;
-        height:100px; width: 150px;" class="Rooms" (click)="detailedData(104)">
+        height:100px; width: 150px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(104)">
 
     <p>104</p>
   </div>
   <div style="position:absolute; left: 348px; top: 100px;
-        height:280px; width: 100px;" class="Rooms" (click)="detailedData(105)">
+        height:280px; width: 100px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(105)">
 
     <p>105</p>
   </div>
@@ -31,14 +31,12 @@
         {{dt.room}}
       </li>
       <li class="list-group-item li-fix">
-        <div class="row">
           <div class="col-md-8">
             Temperature
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4" [ngStyle]="{'background-color': getColor(dt.temperature)}">
             {{dt.temperature}}°C
           </div>
-        </div>
       </li>
       <li class="list-group-item li-fix">
         <div class="row">
