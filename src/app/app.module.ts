@@ -14,9 +14,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
 import { DetailedDataComponent } from './detailed-data/detailed-data.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AirQualityDataService } from './[Services]/air-quality-data.service';
-import { AuthService } from './[Services]/auth.service';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AirQualityDataService } from './[Services]/air-quality-data.service';import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './Signup/signup.component';
 import { TestMapComponent } from './TestMap/testmap.component';
 
@@ -56,7 +54,7 @@ import { TestMapComponent } from './TestMap/testmap.component';
     ], { useHash: true })
   ],
   schemas:[NO_ERRORS_SCHEMA],
-  providers: [AirQualityDataService, AuthService],
+  providers: [AirQualityDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
