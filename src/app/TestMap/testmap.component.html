@@ -1,42 +1,43 @@
-<div *ngFor="let dt of data">
+<div>
   <div style="position:absolute; left: 100px; top: 100px;
-        height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(101)">
+        height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(data[0].temperature)}" class="Rooms" (click)="detailedData(101)">
+
     <p>101</p>
   </div>
   <div style="position:absolute; left: 199px; top: 100px;
-        height:150px; width: 150px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(102)">
+        height:150px; width: 150px;" [ngStyle]="{'background-color': getColor(data[1].temperature)}" class="Rooms" (click)="detailedData(102)">
 
     <p>102</p>
   </div>
   <div style="position:absolute; left: 100px; top: 280px;
-        height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(103)">
+        height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(data[2].temperature)}" class="Rooms" (click)="detailedData(103)">
 
     <p>103</p>
   </div>
   <div style="position:absolute; left: 199px; top: 280px;
-        height:100px; width: 150px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(104)">
+        height:100px; width: 150px;" [ngStyle]="{'background-color': getColor(data[3].temperature)}" class="Rooms" (click)="detailedData(104)">
 
     <p>104</p>
   </div>
   <div style="position:absolute; left: 348px; top: 100px;
-        height:280px; width: 100px;" [ngStyle]="{'background-color': getColor(dt.temperature)}" class="Rooms" (click)="detailedData(105)">
+        height:280px; width: 100px;" [ngStyle]="{'background-color': getColor(data[4].temperature)}" class="Rooms" (click)="detailedData(105)">
 
     <p>105</p>
   </div>
 
   <div style="position:absolute; right:100px; margin-top:20px;
-                width:400px;" [hidden]="dt.hide">
+                width:400px;" [hidden]="dt.hide" *ngFor="let dt of data">
     <ul class="list-group">
       <li class="list-group-item active">
         {{dt.room}}
       </li>
       <li class="list-group-item li-fix">
-          <div class="col-md-8">
-            Temperature
-          </div>
-          <div class="col-md-4" [ngStyle]="{'background-color': getColor(dt.temperature)}">
-            {{dt.temperature}}°C
-          </div>
+        <div class="col-md-8">
+          Temperature
+        </div>
+        <div class="col-md-4" [ngStyle]="{'background-color': getColor(dt.temperature)}">
+          {{dt.temperature}}°C
+        </div>
       </li>
       <li class="list-group-item li-fix">
         <div class="row">
@@ -74,7 +75,7 @@
             Illuminance
           </div>
           <div class="col-md-4">
-            {{dt.illuminantie}} lux
+            {{dt.illuminance}} lux
           </div>
         </div>
       </li>

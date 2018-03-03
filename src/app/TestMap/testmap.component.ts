@@ -42,7 +42,7 @@ export class TestMapComponent implements OnInit {
   data: any[] = [
     {
       room: 101,
-      temperature: 25,
+      temperature: 21,
       humidity: 40,
       co2: 700,
       sound: 85,
@@ -51,7 +51,7 @@ export class TestMapComponent implements OnInit {
     },
     {
       room: 102,
-      temperature: 20,
+      temperature: 22,
       humidity: 60,
       co2: 500,
       sound: 65,
@@ -86,5 +86,4 @@ export class TestMapComponent implements OnInit {
       hide: true
     }
   ];
-
 }
