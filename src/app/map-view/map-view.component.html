@@ -5,13 +5,13 @@
         <thead>
           <tr>
             <th>Room</th>
-            <th>Temperature</th>
+            <th>{{variable}}</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let roominfo of rooms">
+          <tr *ngFor="let roominfo of rooms; let i = index">
             <td>{{roominfo.room}}</td>
-            <td [ngStyle]="{'background-color': getColor(roominfo.temperature)}">{{roominfo.temperature}}</td>
+            <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}">{{getVariable(variable, i)}}</td>
           </tr>
         </tbody>
       </table>
@@ -19,29 +19,30 @@
     <div class="col">
       <!--Radio group-->
       <div class="form-group">
-        <input name="102" type="radio" class="with-gap" id="radio106" checked>
+        <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="temperature" id="radio106" checked>
         <label for="radio106">Temperature</label>
       </div>
 
       <div class="form-group">
-        <input name="102" type="radio" class="with-gap" id="radio107">
+        <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="humidity" id="radio107">
         <label for="radio107">Humidity</label>
       </div>
 
       <div class="form-group">
-        <input name="102" type="radio" class="with-gap" id="radio108">
+        <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="co2level" id="radio110">
+        <label for="radio110">CO2</label>
+      </div>
+
+      <div class="form-group">
+        <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="soundlevel" id="radio108">
         <label for="radio108">Sound</label>
       </div>
 
       <div class="form-group">
-        <input name="102" type="radio" class="with-gap" id="radio109">
+        <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="illuminance" id="radio109">
         <label for="radio109">Illuminance</label>
       </div>
 
-      <div class="form-group">
-        <input name="102" type="radio" class="with-gap" id="radio110">
-        <label for="radio110">CO2</label>
-      </div>
       <!--Radio group-->
     </div>
     <div class="col">
