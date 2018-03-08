@@ -32,8 +32,8 @@ export class MapViewComponent implements OnInit {
         hvalue = 120 + colorSensitivity * (optimum - actual);
         svalue = 100;
         lvalue = 60;
-        if (hvalue > 280) {
-          hvalue = 280;
+        if (hvalue > 260) {
+          hvalue = 260;
         }
         if (hvalue < 0) {
           hvalue = 0;

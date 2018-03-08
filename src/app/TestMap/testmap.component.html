@@ -25,6 +25,22 @@
     <p>105</p>
   </div>
 
+  <div style="position:absolute; left:100px; top:450px">
+    <img src="./assets/temperatureColor.PNG" width="300px" height="20px">
+  </div>
+
+  <div style="position:absolute; left:50px; top:450px">
+    <p>HIGH</p>
+  </div>
+
+  <div style="position:absolute; left:410px; top:450px">
+    <p>LOW</p>
+  </div>
+
+  <div style="position:absolute; left:200px; top:425px">
+    <p>OPTIMUM</p>
+  </div>
+
   <div style="position:absolute; right:100px; margin-top:20px;
                 width:400px;" [hidden]="dt.hide" *ngFor="let dt of data">
     <ul class="list-group">
@@ -32,12 +48,15 @@
         {{dt.room}}
       </li>
       <li class="list-group-item li-fix">
-        <div class="col-md-8">
-          Temperature
+        <div class="row">
+          <div class="col-md-8">
+            Temperature
+          </div>
+          <div class="col-md-4">
+            {{dt.temperature}}°C
+          </div>
         </div>
-        <div class="col-md-4" [ngStyle]="{'background-color': getColor(dt.temperature)}">
-          {{dt.temperature}}°C
-        </div>
+
       </li>
       <li class="list-group-item li-fix">
         <div class="row">
@@ -55,7 +74,7 @@
             CO2-level
           </div>
           <div class="col-md-4">
-            {{dt.co2}} ppm
+            {{dt.co2level}} ppm
           </div>
         </div>
       </li>
@@ -65,7 +84,7 @@
             Sound-level
           </div>
           <div class="col-md-4">
-            {{dt.sound}} dB
+            {{dt.soundlevel}} dB
           </div>
         </div>
       </li>
