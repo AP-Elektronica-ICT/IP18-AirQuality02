@@ -2,16 +2,15 @@
   <div class="row">
     <div class="col-md-2" style="margin-top: 55px;">
       <!--Radio group-->
-      <div class="form-check">
-        <input class="form-check-input" name="group100" type="radio" id="radio100" checked>
-        <label class="form-check-label" for="radio100">List view</label>
-      </div>
-
-      <div class="form-check">
-        <input class="form-check-input" name="group100" type="radio" id="radio101">
-        <label class="form-check-label" for="radio101">Map view</label>
-      </div>
-
+      <div class="form-group">
+          <input name="100" type="radio" class="with-gap" [(ngModel)]="viewType" value="listView" id="radio100" checked>
+          <label for="radio100">List view</label>
+        </div>
+  
+        <div class="form-group">
+          <input name="100" type="radio" class="with-gap" [(ngModel)]="viewType" value="mapView" id="radio101">
+          <label for="radio101">Map view</label>
+        </div>
       <!--Radio group-->
     </div>
     <div class="col-md-4">

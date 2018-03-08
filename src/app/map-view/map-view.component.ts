@@ -11,14 +11,25 @@ export class MapViewComponent implements OnInit {
 
   rooms: any[];
 
-  constructor(private _svc: AirQualityDataService) { 
+  constructor(private _svc: AirQualityDataService) {
     this.rooms = _svc.rooms;
   }
 
   ngOnInit() {
-    
+
   }
 
+  getViewType(_viewType) {
+    switch (_viewType) {
+      case 'listView':
+        this.viewTypehtml = '<h1>TEST LIST</h1>';
+        break;
+      case 'mapView':
+        this.viewTypehtml = '<h2>TEST MAP</2>';
+        break;
+    }
+    return this.viewTypehtml;
+  }
   getColor(__variable, actual) {
     var hvalue: any;
     var svalue: any;
@@ -118,17 +129,18 @@ export class MapViewComponent implements OnInit {
     return _variable;
   }
 
-  detailedData(roomnumber, index){
-      if(this.rooms[index].room == roomnumber){
-        this.rooms[index].hide = !this.rooms[index].hide;
+  detailedData(roomnumber, index) {
+    if (this.rooms[index].room == roomnumber) {
+      this.rooms[index].hide = !this.rooms[index].hide;
+    }
+    for (var i = 0; i < this.rooms.length; i++) {
+      if (this.rooms[i].room != roomnumber && this.rooms[i].hide == false && i != index) {
+        this.rooms[i].hide = true;
       }
-      for(var i = 0; i < this.rooms.length; i++){
-        if(this.rooms[i].room != roomnumber && this.rooms[i].hide == false && i != index){
-          this.rooms[i].hide = true;
-        }
-      }
-     
-  }
+    }
 
+  }
+  viewTypehtml = '<h1>TEST LIST</h1>';
+  viewType = 'listView';
   variable = 'temperature';
 }
