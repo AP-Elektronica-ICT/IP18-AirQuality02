@@ -140,7 +140,7 @@ export class MapViewComponent implements OnInit {
     }
 
   }
-  viewTypehtml = '<h1>TEST LIST</h1>';
+  viewTypehtml: string = '<h1>TEST LIST</h1>';
   viewType = 'listView';
   variable = 'temperature';
 }

@@ -11,6 +11,10 @@
           <input name="100" type="radio" class="with-gap" [(ngModel)]="viewType" value="mapView" id="radio101">
           <label for="radio101">Map view</label>
         </div>
+
+        <div [innerHTML]="getViewType(viewType)">
+
+        </div>
       <!--Radio group-->
     </div>
     <div class="col-md-4">
