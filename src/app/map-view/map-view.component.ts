@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IRootObject, AirQualityDataService } from '../[Services]/air-quality-data.service';
+import { AirQualityDataService } from '../[Services]/air-quality-data.service';
 
 
 @Component({
@@ -9,13 +9,14 @@ import { IRootObject, AirQualityDataService } from '../[Services]/air-quality-da
 })
 export class MapViewComponent implements OnInit {
 
-  airqualitydata: IRootObject
+  rooms: any[];
 
-  constructor(private _svc: AirQualityDataService) { }
+  constructor(private _svc: AirQualityDataService) { 
+    this.rooms = _svc.rooms;
+  }
 
   ngOnInit() {
-    this._svc.getAirQualityData()
-      .subscribe(result => this.airqualitydata = result)
+    
   }
 
   getColor(__variable, actual) {
@@ -121,76 +122,13 @@ export class MapViewComponent implements OnInit {
       if(this.rooms[index].room == roomnumber){
         this.rooms[index].hide = !this.rooms[index].hide;
       }
-      if(this.rooms[index].room != roomnumber && this.rooms[index].hide == false){
-        this.rooms[index].hide = true;
+      for(var i = 0; i < this.rooms.length; i++){
+        if(this.rooms[i].room != roomnumber && this.rooms[i].hide == false && i != index){
+          this.rooms[i].hide = true;
+        }
       }
+     
   }
 
   variable = 'temperature';
-
-  rooms: any[] = [
-    {
-      "room": "room 101",
-      "temperature": "21",
-      "humidity": "34",
-      "co2level": "325",
-      "soundlevel": "43",
-      "illuminance": "80",
-      hide: true
-    },
-    {
-      "room": "room 102",
-      "temperature": "25",
-      "humidity": "36",
-      "co2level": "400",
-      "soundlevel": "35",
-      "illuminance": "180",
-      hide: true
-    },
-    {
-      "room": "room 103",
-      "temperature": "22",
-      "humidity": "40",
-      "co2level": "450",
-      "soundlevel": "50",
-      "illuminance": "280",
-      hide: true
-    },
-    {
-      "room": "room 104",
-      "temperature": "23",
-      "humidity": "43",
-      "co2level": "500",
-      "soundlevel": "33",
-      "illuminance": "380",
-      hide: true
-    },
-    {
-      "room": "room 105",
-      "temperature": "24",
-      "humidity": "45",
-      "co2level": "950",
-      "soundlevel": "45",
-      "illuminance": "480",
-      hide: true
-    },
-    {
-      "room": "room 106",
-      "temperature": "18",
-      "humidity": "32",
-      "co2level": "1200",
-      "soundlevel": "35",
-      "illuminance": "580",
-      hide: true
-    },
-    {
-      "room": "room 107",
-      "temperature": "23",
-      "humidity": "35",
-      "co2level": "2000",
-      "soundlevel": "78",
-      "illuminance": "680",
-      hide: true
-    },
-  ];
 }
