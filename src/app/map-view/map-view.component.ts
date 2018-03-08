@@ -117,6 +117,15 @@ export class MapViewComponent implements OnInit {
     return _variable;
   }
 
+  detailedData(roomnumber, index){
+      if(this.rooms[index].room == roomnumber){
+        this.rooms[index].hide = !this.rooms[index].hide;
+      }
+      if(this.rooms[index].room != roomnumber && this.rooms[index].hide == false){
+        this.rooms[index].hide = true;
+      }
+  }
+
   variable = 'temperature';
 
   rooms: any[] = [
