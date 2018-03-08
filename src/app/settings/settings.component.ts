@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AirQualityDataService } from '../[Services]/air-quality-data.service';
 
 @Component({
   selector: 'app-settings',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsComponent implements OnInit {
 
-  constructor() { }
+  data: any[];
+  
+  constructor(private _svc: AirQualityDataService) { 
+    this.data = _svc.rooms;
+  }
 
   ngOnInit() {
+
   }
 
 }
