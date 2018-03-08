@@ -9,7 +9,7 @@ export class AirQualityDataService {
   rooms: any[] = [
     {
       "id": "101",
-      "room": "room 101",
+      "room": "Room 101",
       "temperature": "21",
       "humidity": "34",
       "co2level": "325",
@@ -19,7 +19,7 @@ export class AirQualityDataService {
     },
     {
       "id": "102",
-      "room": "room 102",
+      "room": "Room 102",
       "temperature": "25",
       "humidity": "36",
       "co2level": "400",
@@ -29,7 +29,7 @@ export class AirQualityDataService {
     },
     {
       "id": "103",
-      "room": "room 103",
+      "room": "Room 103",
       "temperature": "22",
       "humidity": "40",
       "co2level": "450",
@@ -39,7 +39,7 @@ export class AirQualityDataService {
     },
     {
       "id": "104",
-      "room": "room 104",
+      "room": "Room 104",
       "temperature": "23",
       "humidity": "43",
       "co2level": "500",
@@ -49,7 +49,7 @@ export class AirQualityDataService {
     },
     {
       "id": "105",
-      "room": "room 105",
+      "room": "Room 105",
       "temperature": "24",
       "humidity": "45",
       "co2level": "950",
@@ -59,7 +59,7 @@ export class AirQualityDataService {
     },
     {
       "id": "106",
-      "room": "room 106",
+      "room": "Room 106",
       "temperature": "18",
       "humidity": "32",
       "co2level": "1200",
@@ -69,7 +69,7 @@ export class AirQualityDataService {
     },
     {
       "id": "107",
-      "room": "room 107",
+      "room": "Room 107",
       "temperature": "23",
       "humidity": "35",
       "co2level": "2000",
