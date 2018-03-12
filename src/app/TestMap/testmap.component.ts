@@ -32,7 +32,6 @@ export class TestMapComponent implements OnInit {
   }
 
   detailedData(roomnumber){
-    debugger;
     for(var i: number = 0; i < this.data.length; i++){
       if(this.data[i].id == roomnumber){
         this.data[i].hide = !this.data[i].hide;

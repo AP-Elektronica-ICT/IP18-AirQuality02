@@ -2,19 +2,28 @@
   <div class="row">
     <div class="col-md-2" style="margin-top: 55px;">
       <!--Radio group-->
-      <div class="form-group">
-          <input name="100" type="radio" class="with-gap" [(ngModel)]="viewType" value="listView" id="radio100" checked>
-          <label for="radio100">List view</label>
-        </div>
-  
-        <div class="form-group">
-          <input name="100" type="radio" class="with-gap" [(ngModel)]="viewType" value="mapView" id="radio101">
-          <label for="radio101">Map view</label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" name="templateCheck" type="radio" id="radio100" [(ngModel)]="templateCheck" [value]="true" checked>
+        <label class="form-check-label" for="radio100">List View</label>
+      </div>
 
-        <div [innerHTML]="getViewType(viewType)">
+      <div class="form-check">
+        <input class="form-check-input" name="templateCheck" type="radio" id="radio101" [(ngModel)]="templateCheck" [value]="false">
+        <label class="form-check-label" for="radio101">Map View</label>
+      </div>
 
+      <div *ngIf="templateCheck; then listView else mapView"></div>
+      <ng-template #listView>
+        <div>
+          <h1>test 1</h1>
         </div>
+      </ng-template>
+      <ng-template #mapView>
+        <div>
+          <h1>test 2</h1>
+        </div>
+      </ng-template>
+
       <!--Radio group-->
     </div>
     <div class="col-md-4">
@@ -43,7 +52,7 @@
       <div class="form-group">
         <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="humidity" id="radio107">
         <label for="radio107">Humidity</label>
-      </div>
+      </div>  
 
       <div class="form-group">
         <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="co2level" id="radio110">
@@ -116,6 +125,10 @@
               {{roominfo.illuminance}} lux
             </div>
           </div>
+        </li>
+        <li class="list-group-item">
+          Warning:
+          <!-- {{warnings.temperature.high}} -->
         </li>
       </ul>
     </div>

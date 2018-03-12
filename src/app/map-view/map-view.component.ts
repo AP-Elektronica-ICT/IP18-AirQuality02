@@ -10,25 +10,15 @@ import { AirQualityDataService } from '../[Services]/air-quality-data.service';
 export class MapViewComponent implements OnInit {
 
   rooms: any[];
+  warnings: any[];
 
   constructor(private _svc: AirQualityDataService) {
     this.rooms = _svc.rooms;
+    this.warnings = _svc.warnings;
   }
 
   ngOnInit() {
 
-  }
-
-  getViewType(_viewType) {
-    switch (_viewType) {
-      case 'listView':
-        this.viewTypehtml = '<h1>TEST LIST</h1>';
-        break;
-      case 'mapView':
-        this.viewTypehtml = '<h2>TEST MAP</2>';
-        break;
-    }
-    return this.viewTypehtml;
   }
   getColor(__variable, actual) {
     var hvalue: any;
@@ -140,7 +130,6 @@ export class MapViewComponent implements OnInit {
     }
 
   }
-  viewTypehtml: string = '<h1>TEST LIST</h1>';
-  viewType = 'listView';
+  templateCheck = true;
   variable = 'temperature';
 }

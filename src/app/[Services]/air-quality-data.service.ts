@@ -79,6 +79,29 @@ export class AirQualityDataService {
     },
   ];
 
+  warnings: any[] = [
+    {
+      temperature: {
+        low: "The temperature in this room is too low!",
+        high: "The temperature in this room is too high!"
+      },
+      humidity: {
+        low: "There is not enough humidity in this room! The air is too dry!",
+        high: "There is not enough humidity in this room! The air is too wet!"
+      },
+      co2level: {
+        high: "There is too much CO² in this room! refresh the room with some fresh air!"
+      },
+      soundlevel: {
+        high: "There is too much noise coming from this room!"
+      },
+      illuminance: {
+        low: "There is not enough light in this room!",
+        high:"There is too much light in this room!"
+      }
+    }
+  ];
+
   constructor() {
     
    }
