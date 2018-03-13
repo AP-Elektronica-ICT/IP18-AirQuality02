@@ -17,4 +17,11 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
 
   }
+
+  UpdateAll(){
+
+  }
+  ResetAll(){
+    
+  }
 }
