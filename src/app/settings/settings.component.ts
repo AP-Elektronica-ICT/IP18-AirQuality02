@@ -8,14 +8,13 @@ import { AirQualityDataService } from '../[Services]/air-quality-data.service';
 })
 export class SettingsComponent implements OnInit {
 
-  data: any[];
+  rooms: any[];
   
   constructor(private _svc: AirQualityDataService) { 
-    this.data = _svc.rooms;
+    this.rooms = _svc.rooms;
   }
 
   ngOnInit() {
 
   }
-
 }

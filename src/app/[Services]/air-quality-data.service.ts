@@ -15,6 +15,32 @@ export class AirQualityDataService {
       "co2level": "325",
       "soundlevel": "43",
       "illuminance": "80",
+      settings:{
+        temperature:{
+          preferred: 21,
+          max: 23,
+          min: 19 
+        },
+        humidity:{
+          preferred: 40,
+          max: 60,
+          min: 30 
+        },
+        co2level:{
+          preferred: 450,
+          max: 750, 
+        },
+        soundlevel:{
+          preferred: 50,
+          max: 75,
+          min: 25 
+        },
+        illuminance:{
+          preferred: 500,
+          max: 750,
+          min: 100 
+        }
+      },
       hide: true
     },
     {
@@ -25,6 +51,32 @@ export class AirQualityDataService {
       "co2level": "400",
       "soundlevel": "35",
       "illuminance": "180",
+      settings:{
+        temperature:{
+          preferred: 21,
+          max: 23,
+          min: 19 
+        },
+        humidity:{
+          preferred: 40,
+          max: 60,
+          min: 30 
+        },
+        co2level:{
+          preferred: 450,
+          max: 750, 
+        },
+        soundlevel:{
+          preferred: 50,
+          max: 75,
+          min: 25 
+        },
+        illuminance:{
+          preferred: 500,
+          max: 750,
+          min: 100 
+        }
+      },
       hide: true
     },
     {
@@ -35,6 +87,32 @@ export class AirQualityDataService {
       "co2level": "450",
       "soundlevel": "50",
       "illuminance": "280",
+      settings:{
+        temperature:{
+          preferred: 21,
+          max: 23,
+          min: 19 
+        },
+        humidity:{
+          preferred: 40,
+          max: 60,
+          min: 30 
+        },
+        co2level:{
+          preferred: 450,
+          max: 750, 
+        },
+        soundlevel:{
+          preferred: 50,
+          max: 75,
+          min: 25 
+        },
+        illuminance:{
+          preferred: 500,
+          max: 750,
+          min: 100 
+        }
+      },
       hide: true
     },
     {
@@ -45,6 +123,32 @@ export class AirQualityDataService {
       "co2level": "500",
       "soundlevel": "33",
       "illuminance": "380",
+      settings:{
+        temperature:{
+          preferred: 21,
+          max: 23,
+          min: 19 
+        },
+        humidity:{
+          preferred: 40,
+          max: 60,
+          min: 30 
+        },
+        co2level:{
+          preferred: 450,
+          max: 750, 
+        },
+        soundlevel:{
+          preferred: 50,
+          max: 75,
+          min: 25 
+        },
+        illuminance:{
+          preferred: 500,
+          max: 750,
+          min: 100 
+        }
+      },
       hide: true
     },
     {
@@ -55,6 +159,32 @@ export class AirQualityDataService {
       "co2level": "950",
       "soundlevel": "45",
       "illuminance": "480",
+      settings:{
+        temperature:{
+          preferred: 21,
+          max: 23,
+          min: 19 
+        },
+        humidity:{
+          preferred: 40,
+          max: 60,
+          min: 30 
+        },
+        co2level:{
+          preferred: 450,
+          max: 750, 
+        },
+        soundlevel:{
+          preferred: 50,
+          max: 75,
+          min: 25 
+        },
+        illuminance:{
+          preferred: 500,
+          max: 750,
+          min: 100 
+        }
+      },
       hide: true
     },
     {
@@ -65,6 +195,32 @@ export class AirQualityDataService {
       "co2level": "1200",
       "soundlevel": "35",
       "illuminance": "580",
+      settings:{
+        temperature:{
+          preferred: 21,
+          max: 23,
+          min: 19 
+        },
+        humidity:{
+          preferred: 40,
+          max: 60,
+          min: 30 
+        },
+        co2level:{
+          preferred: 450,
+          max: 750, 
+        },
+        soundlevel:{
+          preferred: 50,
+          max: 75,
+          min: 25 
+        },
+        illuminance:{
+          preferred: 500,
+          max: 750,
+          min: 100 
+        }
+      },
       hide: true
     },
     {
@@ -75,6 +231,32 @@ export class AirQualityDataService {
       "co2level": "2000",
       "soundlevel": "78",
       "illuminance": "680",
+      settings:{
+        temperature:{
+          preferred: 21,
+          max: 23,
+          min: 19 
+        },
+        humidity:{
+          preferred: 40,
+          max: 60,
+          min: 30 
+        },
+        co2level:{
+          preferred: 450,
+          max: 750, 
+        },
+        soundlevel:{
+          preferred: 50,
+          max: 75,
+          min: 25 
+        },
+        illuminance:{
+          preferred: 500,
+          max: 750,
+          min: 100 
+        }
+      },
       hide: true
     },
   ];
