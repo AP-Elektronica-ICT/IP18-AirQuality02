@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AirQualityDataService } from './[Services]/air-quality-data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './Signup/signup.component';
-import { TestMapComponent } from './TestMap/testmap.component';
 
 
 @NgModule({
@@ -32,8 +31,7 @@ import { TestMapComponent } from './TestMap/testmap.component';
     SettingsComponent,
     AdminSettingsComponent,
     DetailedDataComponent,
-    SignupComponent,
-    TestMapComponent
+    SignupComponent
   ],
   imports: [
     ChartsModule,
@@ -51,7 +49,6 @@ import { TestMapComponent } from './TestMap/testmap.component';
       { path: "settings", component: SettingsComponent },
       { path: "admin", component: AdminSettingsComponent },
       { path: "signup", component: SignupComponent },
-      { path: "testmap", component: TestMapComponent}
     ], { useHash: true })
   ],
   schemas:[NO_ERRORS_SCHEMA],

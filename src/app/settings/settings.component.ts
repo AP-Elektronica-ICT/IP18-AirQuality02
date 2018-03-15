@@ -22,6 +22,12 @@ export class SettingsComponent implements OnInit {
 
   }
   ResetAll(){
-    
+    this.rooms = this._svc.roomsDefault;
+  }
+
+  reset(roomid){
+    if(this.rooms == roomid){
+      this.rooms = this._svc.roomsDefault;
+    }
   }
 }

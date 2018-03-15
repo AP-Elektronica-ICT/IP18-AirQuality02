@@ -1,6 +1,6 @@
 <div class="container" style='margin-top:15px;'>
 
-  <div *ngFor="let room of rooms">
+  <div *ngFor="let room of rooms; let i = index">
     <div class="card">
       <div class="card-header primary-color white-text" style="padding:0.40rem 1.25rem; padding-bottom: 0.28rem;">{{room.room}}</div>
       <div class="card-body">
@@ -63,7 +63,7 @@
             </tr>
             <tr>
               <th scope="row">Adjustments</th>
-              <td colspan="5"><button type="button" class="btn  btn-primary btn-sm" style="margin:0px;">Reset Room {{room.id}} settings</button></td>
+              <td colspan="5"><button type="button" class="btn  btn-primary btn-sm" style="margin:0px;" (click)="reset(rooms[i].id)">Reset Room {{room.id}} settings</button></td>
             </tr>
           </tbody>
           <!--Table body-->
