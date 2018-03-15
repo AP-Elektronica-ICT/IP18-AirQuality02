@@ -49,7 +49,7 @@ import { SignupComponent } from './Signup/signup.component';
       { path: "settings", component: SettingsComponent },
       { path: "admin", component: AdminSettingsComponent },
       { path: "signup", component: SignupComponent },
-    ], { useHash: true })
+    ], { useHash: false })
   ],
   schemas:[NO_ERRORS_SCHEMA],
   providers: [AirQualityDataService],

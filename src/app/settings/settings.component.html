@@ -2,7 +2,7 @@
 
   <div *ngFor="let room of rooms; let i = index">
     <div class="card">
-      <div class="card-header primary-color white-text" style="padding:0.40rem 1.25rem; padding-bottom: 0.28rem;">{{room.room}}</div>
+      <div id={{room.id}} class="card-header primary-color white-text" style="padding:0.40rem 1.25rem; padding-bottom: 0.28rem;">{{room.room}}</div>
       <div class="card-body">
         <!--Table-->
         <table class="table table-bordered">
