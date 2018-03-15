@@ -28,7 +28,7 @@ export class AirQualityDataService {
         },
         co2level:{
           preferred: 450,
-          max: 750, 
+          max: 750 
         },
         soundlevel:{
           preferred: 50,
