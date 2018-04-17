@@ -27,7 +27,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let sensor of sensors.data; let i = index"> <!-- (click)="detailedData(rooms[i].room, i)" -->
-              <td>{{sensor.id}}</td>
+              <td>Room {{sensor.id}}</td>
               <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}">{{getVariable(variable, i)}}</td>
             </tr>
           </tbody>
@@ -38,41 +38,7 @@
       </div>
     </ng-template>
     <ng-template #mapView>
-      <!-- <div class="col-md-5" style="margin-top: -50px; margin-left: -50px;">
-        <div style="position:absolute; left: 100px; top: 100px;
-                    height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 0))}" class="Rooms"
-          (click)="detailedData(rooms[0].room, 0)">
-
-          <p>101</p>
-        </div>
-        <div style="position:absolute; left: 199px; top: 100px;
-                    height:150px; width: 150px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 1))}" class="Rooms"
-          (click)="detailedData(rooms[1].room, 1)">
-
-          <p>102</p>
-        </div>
-        <div style="position:absolute; left: 100px; top: 280px;
-                    height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 2))}" class="Rooms"
-          (click)="detailedData(rooms[2].room, 2)">
-
-          <p>103</p>
-        </div>
-        <div style="position:absolute; left: 199px; top: 280px;
-                    height:100px; width: 150px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 3))}" class="Rooms"
-          (click)="detailedData(rooms[3].room, 3)">
-
-          <p>104</p>
-        </div>
-        <div style="position:absolute; left: 348px; top: 100px;
-                    height:280px; width: 100px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 4))}" class="Rooms"
-          (click)="detailedData(rooms[4].room, 4)">
-
-          <p>105</p>
-        </div>
-        <div style="position:absolute; left:100px; top:450px">
-          <img src="../../assets/Legend.PNG" width="300px" height="100px">
-        </div>
-      </div> -->
+    
     </ng-template>
 
     <div class="col-md-2" style="margin-top: 55px;">
@@ -107,9 +73,9 @@
 
     <!-- Detailed data information -->
     <div class="col-md-4" style="margin-top: 55px;">
-      <ul class="list-group" *ngFor="let sensor of sensors.data; let i = index" >
+      <ul class="list-group">
         <li class="list-group-item active">
-          {{sensor.id}}
+          {{sensors.data[0].id}}
           <span [routerLink]="['/settings']" fragment="{{sensors.data[0].id}}" style='float:right; cursor:pointer;'>
             <i class="fa fa-gear" aria-hidden="true"></i>
           </span>
