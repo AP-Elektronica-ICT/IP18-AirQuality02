@@ -1,5 +1,12 @@
 <div class="container" style='margin-top:15px;'>
 
+  <div class="card">
+    <div class="card-body" style="padding:4px;">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+        <span style="color:#999; font-size:12px;">To disable a warning threshold, enter -1</span>
+    </div>
+  </div>
+  <br>
   <div *ngFor="let room of rooms; let i = index">
     <div class="card">
       <div id={{room.id}} class="card-header primary-color white-text" style="padding:0.40rem 1.25rem; padding-bottom: 0.28rem;">{{room.room}}</div>
@@ -55,7 +62,7 @@
               <td>
                 <input type='textbox' size='2' maxlength='4' value='{{room.settings.humidity.min}}' name=''> %</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.co2level.min}}' name=''> ppm</td>
+                
               <td>
                 <input type='textbox' size='2' maxlength='4' value='{{room.settings.soundlevel.min}}' name=''> dB</td>
               <td>
