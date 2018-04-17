@@ -31,7 +31,11 @@ import { SignupComponent } from './Signup/signup.component';
     SettingsComponent,
     AdminSettingsComponent,
     DetailedDataComponent,
+<<<<<<< Updated upstream
     SignupComponent
+=======
+    SignupComponent,
+>>>>>>> Stashed changes
   ],
   imports: [
     ChartsModule,
