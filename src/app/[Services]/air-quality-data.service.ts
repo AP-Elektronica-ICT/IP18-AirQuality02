@@ -6,6 +6,22 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AirQualityDataService {
 
+  getSensorDataAir2(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-2/data?from_date=2018-03-29T09:57&to_date=2018-3-29T09:58")
+  }
+
+  getSensorDataAir3(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-3/data?from_date=2018-04-17T12:21&to_date=2018-4-17T12:22")
+  }
+
+  getSensorsInfo(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/devices")
+  }
+
+  SensorsInfo: IRootObject;
+  SensorDataAir2: IRootObject;
+  SensorDataAir3: IRootObject;
+
   rooms: any[] = [
     {
       "id": "101",
@@ -516,31 +532,27 @@ export class AirQualityDataService {
     },
   ];
 
-  warnings: any[] = [
-    {
-      temperature: {
-        low: "The temperature in this room is too low!",
-        high: "The temperature in this room is too high!"
-      },
-      humidity: {
-        low: "There is not enough humidity in this room! The air is too dry!",
-        high: "There is not enough humidity in this room! The air is too wet!"
-      },
-      co2level: {
-        high: "There is too much CO² in this room! refresh the room with some fresh air!"
-      },
-      soundlevel: {
-        high: "There is too much noise coming from this room!"
-      },
-      illuminance: {
-        low: "There is not enough light in this room!",
-        high:"There is too much light in this room!"
-      }
-    }
-  ];
+  constructor(private _http: HttpClient) { }
 
-  constructor() {
-    
-   }
+}
 
+export interface IRootObject {
+  data: Datum[];
+}
+
+export interface Datum {
+  id: string;
+  type: string;
+  attributes: Attributes;
+}
+
+export interface Attributes {
+  device_id: string;
+  temperature: string;
+  humidity: string;
+  co2?: any;
+  sound?: any;
+  light?: any;
+  created_at: string;
+  data_url: string;
 }
