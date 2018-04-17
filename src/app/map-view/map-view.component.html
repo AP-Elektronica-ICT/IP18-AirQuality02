@@ -26,8 +26,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let roominfo of rooms; let i = index" (click)="detailedData(rooms[i].room, i)">
-              <td>{{roominfo.room}}</td>
+            <tr *ngFor="let sensor of sensors.data; let i = index" > <!--(click)="detailedData(rooms[i].room, i)"> -->
+              <td>{{sensor.id}}</td>
               <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}">{{getVariable(variable, i)}}</td>
             </tr>
           </tbody>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AirQualityDataService } from '../[Services]/air-quality-data.service';
+import { AirQualityDataService, IRootObject } from '../[Services]/air-quality-data.service';
 
 
 @Component({
@@ -11,14 +11,16 @@ export class MapViewComponent implements OnInit {
 
   rooms: any[];
   warnings: any[];
-
+  sensorAir3: IRootObject;
+  sensors: IRootObject;
   constructor(private _svc: AirQualityDataService) {
-    this.rooms = _svc.rooms;
-    this.warnings = _svc.warnings;
+    this.sensorAir3 = _svc.SensorDataAir3;
+    //this.sensors = _svc.SensorsInfo;
   }
 
   ngOnInit() {
-
+   this._svc.getSensorDataAir3().subscribe(result => this.sensorAir3 = result);
+   this._svc.getSensorsInfo().subscribe(result => this.sensors = result);
   }
   getColor(__variable, actual) {
     var hvalue: any;
@@ -101,30 +103,30 @@ export class MapViewComponent implements OnInit {
     var _variable: string;
     switch (__variable) {
       case "temperature":
-        _variable = this.rooms[index].temperature;
+        _variable = this.sensorAir3.data[index].attributes.temperature;
         break;
       case "humidity":
-        _variable = this.rooms[index].humidity;
+        _variable = this.sensorAir3.data[index].attributes.humidity;
         break;
       case "co2level":
-        _variable = this.rooms[index].co2level;
+        _variable = this.sensorAir3.data[index].attributes.co2;
         break;
       case "soundlevel":
-        _variable = this.rooms[index].soundlevel;
+        _variable = this.sensorAir3.data[index].attributes.sound;
         break;
       case "illuminance":
-        _variable = this.rooms[index].illuminance;
+        _variable = this.sensorAir3.data[index].attributes.light;
         break;
     }
     return _variable;
   }
 
-  detailedData(roomnumber, index) {
-    if (this.rooms[index].room == roomnumber) {
+  detailedData(id, index) {
+    if (this.rooms[index].room == id) {
       this.rooms[index].hide = !this.rooms[index].hide;
     }
     for (var i = 0; i < this.rooms.length; i++) {
-      if (this.rooms[i].room != roomnumber && this.rooms[i].hide == false && i != index) {
+      if (this.rooms[i].room != id && this.rooms[i].hide == false && i != index) {
         this.rooms[i].hide = true;
       }
     }
