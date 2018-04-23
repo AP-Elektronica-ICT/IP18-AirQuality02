@@ -14,6 +14,10 @@ export class AirQualityDataService {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-3/data?limit=1")
   }
 
+  getSensorDataAir3Extended(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-3/data?limit=30")
+  }
+
   getSensorsInfo(): Observable<IRootObject> {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/devices")
   }
