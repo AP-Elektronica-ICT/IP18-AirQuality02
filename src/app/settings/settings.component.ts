@@ -11,10 +11,47 @@ import { Observer } from 'rxjs/Observer';
 export class SettingsComponent implements OnInit {
   private fragment: string;
   rooms: any[];
-  preferredTemp = "11";
+
+  //preferred values
+  preferredTemp;
+  preferredHum;
+  preferredCO;
+  preferredSound;
+  preferredIllu;
+
+  //max values
+  maxTemp;
+  maxHum;
+  maxCO;
+  maxSound;
+  maxIllu;
+
+  //min values
+  minTemp;
+  minHum;
+  minSound;
+  minIllu;
 
   constructor(private _svc: AirQualityDataService, private route: ActivatedRoute) {
     this.rooms = _svc.rooms;
+    this.preferredTemp = this.rooms[0].settings.temperature.preferred;
+    this.preferredHum = this.rooms[0].settings.humidity.preferred;
+    this.preferredCO = this.rooms[0].settings.co2level.preferred;
+    this.preferredSound = this.rooms[0].settings.soundlevel.preferred;
+    this.preferredIllu = this.rooms[0].settings.illuminance.preferred;
+
+    //max values
+    this.maxTemp = this.rooms[0].settings.temperature.max;
+    this.maxHum = this.rooms[0].settings.humidity.max;
+    this.maxCO = this.rooms[0].settings.co2level.max;
+    this.maxSound = this.rooms[0].settings.soundlevel.max;
+    this.maxIllu = this.rooms[0].settings.illuminance.max;
+
+    //min values
+    this.minTemp = this.rooms[0].settings.temperature.min;
+    this.minHum = this.rooms[0].settings.humidity.min;
+    this.minSound = this.rooms[0].settings.soundlevel.min;
+    this.minIllu = this.rooms[0].settings.illuminance.min;
   }
 
   ngOnInit() {
@@ -34,9 +71,36 @@ export class SettingsComponent implements OnInit {
     console.log("update specific room: " + roomid);
     switch (roomid) {
       case "101":
+        //preferred
         this.rooms[0].settings.temperature.preferred = parseInt(this.preferredTemp);
+        this.rooms[0].settings.humidity.preferred = parseInt(this.preferredHum);
+        this.rooms[0].settings.co2level.preferred = parseInt(this.preferredCO);
+        this.rooms[0].settings.soundlevel.preferred = parseInt(this.preferredSound);
+        this.rooms[0].settings.illuminance.preferred = parseInt(this.preferredIllu);
+
+        this._svc.rooms[0].settings.temperature.preferred = parseInt(this.preferredTemp);
+        this._svc.rooms[0].settings.humidity.preferred = parseInt(this.preferredHum);
+        this._svc.rooms[0].settings.co2level.preferred = parseInt(this.preferredCO);
+        this._svc.rooms[0].settings.soundlevel.preferred = parseInt(this.preferredSound);
+        this._svc.rooms[0].settings.illuminance.preferred = parseInt(this.preferredIllu);
+
+        //max
+        this.rooms[0].settings.temperature.max = parseInt(this.maxTemp);
+        this.rooms[0].settings.humidity.max = parseInt(this.maxHum);
+        this.rooms[0].settings.co2level.max = parseInt(this.maxCO);
+        this.rooms[0].settings.soundlevel.max = parseInt(this.maxSound);
+        this.rooms[0].settings.illuminance.max = parseInt(this.maxIllu);
+
+        //min
+        this.rooms[0].settings.temperature.min = parseInt(this.minTemp);
+        this.rooms[0].settings.humidity.min = parseInt(this.minHum);
+        this.rooms[0].settings.soundlevel.min = parseInt(this.minSound);
+        this.rooms[0].settings.illuminance.min = parseInt(this.minIllu);
+
+        prompt("Are you sure you want to save?")
         console.log("room update", this.rooms[0]);
         console.log("default room", this._svc.roomsDefault[0]);
+        console.log("service room", this._svc.rooms[0]);
         break;
       case "102":
         this.rooms[1] = this._svc.roomsDefault[1];
@@ -82,7 +146,46 @@ export class SettingsComponent implements OnInit {
     console.log("reset specific room: " + roomid);
     switch (roomid) {
       case "101":
-        this.rooms[0] = this._svc.roomsDefault[0];
+        //reset preferred values
+        this.preferredTemp = this._svc.roomsDefault[0].settings.temperature.preferred;
+        this.preferredHum = this._svc.roomsDefault[0].settings.humidity.preferred;
+        this.preferredCO = this._svc.roomsDefault[0].settings.co2level.preferred;
+        this.preferredSound = this._svc.roomsDefault[0].settings.soundlevel.preferred;
+        this.preferredIllu = this._svc.roomsDefault[0].settings.illuminance.preferred;
+
+        //reset max values
+        this.maxTemp = this._svc.roomsDefault[0].settings.temperature.max;
+        this.maxHum = this._svc.roomsDefault[0].settings.humidity.max;
+        this.maxCO = this._svc.roomsDefault[0].settings.co2level.max;
+        this.maxSound = this._svc.roomsDefault[0].settings.soundlevel.max;
+        this.maxIllu = this._svc.roomsDefault[0].settings.illuminance.max;
+
+        //reset min values
+        this.minTemp = this._svc.roomsDefault[0].settings.temperature.min;
+        this.minHum = this._svc.roomsDefault[0].settings.humidity.min;
+        this.minSound = this._svc.roomsDefault[0].settings.soundlevel.min;
+        this.minIllu = this._svc.roomsDefault[0].settings.illuminance.min;
+
+        //reset array with preferred values
+        this.rooms[0].settings.temperature.preferred = parseInt(this.preferredTemp);
+        this.rooms[0].settings.humidity.preferred = parseInt(this.preferredHum);
+        this.rooms[0].settings.co2level.preferred = parseInt(this.preferredCO);
+        this.rooms[0].settings.soundlevel.preferred = parseInt(this.preferredSound);
+        this.rooms[0].settings.illuminance.preferred = parseInt(this.preferredIllu);
+
+        //reset array with max values
+        this.rooms[0].settings.temperature.max = parseInt(this.maxTemp);
+        this.rooms[0].settings.humidity.max = parseInt(this.maxHum);
+        this.rooms[0].settings.co2level.max = parseInt(this.maxCO);
+        this.rooms[0].settings.soundlevel.max = parseInt(this.maxSound);
+        this.rooms[0].settings.illuminance.max = parseInt(this.maxIllu);
+
+        //reset array with min values
+        this.rooms[0].settings.temperature.min = parseInt(this.minTemp);
+        this.rooms[0].settings.humidity.min = parseInt(this.minHum);
+        this.rooms[0].settings.soundlevel.min = parseInt(this.minSound);
+        this.rooms[0].settings.illuminance.min = parseInt(this.minIllu);
+
         console.log("room reset", this.rooms[0]);
         console.log("default room", this._svc.roomsDefault[0]);
         break;
