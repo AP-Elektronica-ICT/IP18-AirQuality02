@@ -3,46 +3,34 @@
     <div class="col-3" style="padding:30px;">
       <div class="row">
         <div class="col">
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="101" type="radio" class="with-gap" [(ngModel)]="variable" value="room1" id="radio1" checked>
-            <label for="radio1">Room 1</label>
-          </div>
-        
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="room2" id="radio2">
-            <label for="radio2">Room 2</label>
-          </div>
-        
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="103" type="radio" class="with-gap" [(ngModel)]="variable" value="room3" id="radio3">
+          <form>
+            <input name="room" type="radio" value="room1" checked>
+            <label for="radio1">Room 1</label><br>
+            
+            <input name="room" type="radio" value="room2">
+            <label for="radio2">Room 2</label><br>
+
+            <input name="room" type="radio" value="room3">
             <label for="radio3">Room 3</label>
-          </div>
+          </form>
         </div>
         <div class="col">
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="temp" type="radio" class="with-gap" [(ngModel)]="variable" value="temperature" id="radio1" checked>
-            <label for="radio1">Temperature</label>
-          </div>
-        
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="hum" type="radio" class="with-gap" [(ngModel)]="variable" value="humidity" id="radio2">
-            <label for="radio2">Humidity</label>
-          </div>
-        
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="co2" type="radio" class="with-gap" [(ngModel)]="variable" value="co2level" id="radio3">
-            <label for="radio3">CO2-level</label>
-          </div>
-        
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="sound" type="radio" class="with-gap" [(ngModel)]="variable" value="soundlevel" id="radio4">
-            <label for="radio4">Sound-level</label>
-          </div>
-        
-          <div class="form-group" style='margin-bottom:0px;'>
-            <input name="illu" type="radio" class="with-gap" [(ngModel)]="variable" value="illumination" id="radio5">
-            <label for="radio5">Illumination</label>
-          </div>
+          <form>
+            <input name="parameter" type="radio" value="temperature" checked>
+            <label for="temperature">Temperature</label><br>
+            
+            <input name="parameter" type="radio" value="humidity">
+            <label for="humidity">Humidity</label><br>
+            
+            <input name="parameter" type="radio" value="co2-level">
+            <label for="co2-level">CO2-level</label><br>
+
+            <input name="parameter" type="radio" value="sound-level">
+            <label for="sound-level">Sound-level</label><br>
+
+            <input name="parameter" type="radio" value="illumination">
+            <label for="illumination">Illumination</label>
+          </form>
         </div>
       </div>
     </div>
