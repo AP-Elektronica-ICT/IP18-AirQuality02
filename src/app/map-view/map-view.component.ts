@@ -9,19 +9,20 @@ import { AirQualityDataService, IRootObject } from '../[Services]/air-quality-da
 })
 export class MapViewComponent implements OnInit {
 
-  rooms: any[];
+  ngOnInit() {
+    this._svc.getSensorDataAir3().subscribe(result => this.sensorAir3 = result);
+    this._svc.getSensorsInfo().subscribe(result => this.sensors = result);
+    this._svc.getSensorDataAir2().subscribe(result => this.sensorAir2 = result);
+   }
+
   warnings: any[];
   sensorAir3: IRootObject;
+  sensorAir2: IRootObject;
   sensors: IRootObject;
   constructor(private _svc: AirQualityDataService) {
-    this.sensorAir3 = _svc.SensorDataAir3;
-    //this.sensors = _svc.SensorsInfo;
+
   }
 
-  ngOnInit() {
-   this._svc.getSensorDataAir3().subscribe(result => this.sensorAir3 = result);
-   this._svc.getSensorsInfo().subscribe(result => this.sensors = result);
-  }
   getColor(__variable, actual) {
     var hvalue: any;
     var svalue: any;
@@ -121,7 +122,7 @@ export class MapViewComponent implements OnInit {
     return _variable;
   }
 
-  detailedData(id, index) {
+  /*detailedData(id, index) {
     if (this.rooms[index].room == id) {
       this.rooms[index].hide = !this.rooms[index].hide;
     }
@@ -131,7 +132,10 @@ export class MapViewComponent implements OnInit {
       }
     }
 
-  }
+  }*/
+
   templateCheck = true;
   variable = 'temperature';
+
+  
 }

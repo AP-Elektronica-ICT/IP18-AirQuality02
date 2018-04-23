@@ -26,8 +26,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let sensor of sensors.data; let i = index" > <!--(click)="detailedData(rooms[i].room, i)"> -->
-              <td>{{sensor.id}}</td>
+            <tr *ngFor="let sensor of sensors.data; let i = index"> <!-- (click)="detailedData(rooms[i].room, i)" -->
+              <td>Room {{sensor.id}}</td>
               <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}">{{getVariable(variable, i)}}</td>
             </tr>
           </tbody>
@@ -38,157 +38,7 @@
       </div>
     </ng-template>
     <ng-template #mapView>
-        <!-- Created with Inkscape (http://www.inkscape.org/) -->
-        
-        <svg
-           xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
-           xmlns:dc="http://purl.org/dc/elements/1.1/"
-           xmlns:cc="http://creativecommons.org/ns#"
-           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-           xmlns:svg="http://www.w3.org/2000/svg"
-           xmlns="http://www.w3.org/2000/svg"
-           xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-           xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-           width="210mm"
-           height="297mm"
-           viewBox="0 0 210 297"
-           version="1.1"
-           id="svg8"
-           inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
-           sodipodi:docname="Rooms.svg">
-          <defs
-             id="defs2">
-            <linearGradient
-               id="linearGradient4534"
-               osb:paint="solid">
-              <stop
-                 style="stop-color:#ffffff;stop-opacity:1;"
-                 offset="0"
-                 id="stop4532" />
-            </linearGradient>
-          </defs>
-          <sodipodi:namedview
-             id="base"
-             pagecolor="#ffffff"
-             bordercolor="#666666"
-             borderopacity="1.0"
-             inkscape:pageopacity="0.0"
-             inkscape:pageshadow="2"
-             inkscape:zoom="0.9899495"
-             inkscape:cx="142.32229"
-             inkscape:cy="819.98893"
-             inkscape:document-units="mm"
-             inkscape:current-layer="layer1"
-             showgrid="false"
-             inkscape:window-width="1920"
-             inkscape:window-height="986"
-             inkscape:window-x="-11"
-             inkscape:window-y="-11"
-             inkscape:window-maximized="1" />
-          <metadata
-             id="metadata5">
-            <rdf:RDF>
-              <cc:Work
-                 rdf:about="">
-                <dc:format>image/svg+xml</dc:format>
-                <dc:type
-                   rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-                <dc:title />
-              </cc:Work>
-            </rdf:RDF>
-          </metadata>
-          <g
-             inkscape:label="Layer 1"
-             inkscape:groupmode="layer"
-             id="layer1">
-            <rect
-               id="rect3699"
-               width="40.357697"
-               height="32.339611"
-               x="16.169804"
-               y="35.075863"
-               style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
-            <rect
-               id="rect3701"
-               width="39.833458"
-               height="27.823019"
-               x="35.06237"
-               y="-84.337021"
-               style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.23759463;stroke-opacity:1"
-               transform="rotate(90)" />
-            <rect
-               id="rect3703"
-               width="43.56493"
-               height="39.288624"
-               x="49.921326"
-               y="82.188583"
-               style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
-            <rect
-               id="rect3705"
-               width="42.818493"
-               height="39.833458"
-               x="84.337021"
-               y="35.06237"
-               style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.31847408;stroke-opacity:1" />
-            <rect
-               style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.50620383;stroke-opacity:1"
-               id="rect4542"
-               width="36.611061"
-               height="80.078316"
-               x="127.27634"
-               y="35.183174" />
-            <rect
-               style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.23638274;stroke-opacity:1"
-               id="rect4544"
-               width="33.790077"
-               height="33.07291"
-               x="93.486259"
-               y="82.188583" />
-            <rect
-               style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.29913366;stroke-opacity:1"
-               id="rect4548"
-               width="23.26215"
-               height="26.524105"
-               x="26.691389"
-               y="82.156372" />
-          </g>
-        </svg>
-      <!---
-      <div class="col-md-5" style="margin-top: -50px; margin-left: -50px;">
-        <div style="position:absolute; left: 100px; top: 100px;
-                    height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 0))}" class="Rooms"
-          (click)="detailedData(rooms[0].room, 0)">
-
-          <p>101</p>
-        </div>
-        <div style="position:absolute; left: 199px; top: 100px;
-                    height:150px; width: 150px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 1))}" class="Rooms"
-          (click)="detailedData(rooms[1].room, 1)">
-
-          <p>102</p>
-        </div>
-        <div style="position:absolute; left: 100px; top: 280px;
-                    height:100px; width: 100px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 2))}" class="Rooms"
-          (click)="detailedData(rooms[2].room, 2)">
-
-          <p>103</p>
-        </div>
-        <div style="position:absolute; left: 199px; top: 280px;
-                    height:100px; width: 150px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 3))}" class="Rooms"
-          (click)="detailedData(rooms[3].room, 3)">
-
-          <p>104</p>
-        </div>
-        <div style="position:absolute; left: 348px; top: 100px;
-                    height:280px; width: 100px;" [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 4))}" class="Rooms"
-          (click)="detailedData(rooms[4].room, 4)">
-
-          <p>105</p>
-        </div>
-        <div style="position:absolute; left:100px; top:450px">
-          <img src="../../assets/Legend.PNG" width="300px" height="100px">
-        </div>
-      </div>-->
+    
     </ng-template>
 
     <div class="col-md-2" style="margin-top: 55px;">
@@ -215,7 +65,7 @@
 
       <div class="form-group">
         <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="illuminance" id="radio109">
-        <label for="radio109">Illuminance</label>
+        <label for="radio109">Light</label>
       </div>
 
       <!--Radio group-->
@@ -223,10 +73,10 @@
 
     <!-- Detailed data information -->
     <div class="col-md-4" style="margin-top: 55px;">
-      <ul class="list-group" *ngFor="let roominfo of rooms; let i = index" [hidden]="roominfo.hide">
+      <ul class="list-group">
         <li class="list-group-item active">
-          {{roominfo.room}}
-          <span [routerLink]="['/settings']" fragment="{{roominfo.id}}" style='float:right; cursor:pointer;'>
+          {{sensors.data[0].id}}
+          <span [routerLink]="['/settings']" fragment="{{sensors.data[0].id}}" style='float:right; cursor:pointer;'>
             <i class="fa fa-gear" aria-hidden="true"></i>
           </span>
         </li>
@@ -236,7 +86,7 @@
               Temperature
             </div>
             <div class="col-md-4">
-              {{roominfo.temperature}}°c
+              {{sensorAir3.data[0].attributes.temperature}}°c
             </div>
           </div>
         </li>
@@ -246,7 +96,7 @@
               Humidity
             </div>
             <div class="col-md-4">
-              {{roominfo.humidity}}%
+              {{sensorAir3.data[0].attributes.humidity}}%
             </div>
           </div>
         </li>
@@ -256,7 +106,7 @@
               CO2-level
             </div>
             <div class="col-md-4">
-              {{roominfo.co2level}} ppm
+              {{sensorAir3.data[0].attributes.co2}} ppm
             </div>
           </div>
         </li>
@@ -266,7 +116,7 @@
               Sound-level
             </div>
             <div class="col-md-4">
-              {{roominfo.soundlevel}} dB
+              {{sensorAir3.data[0].attributes.sound}} dB
             </div>
           </div>
         </li>
@@ -276,7 +126,7 @@
               Illuminance
             </div>
             <div class="col-md-4">
-              {{roominfo.illuminance}} lux
+              {{sensorAir3.data[0].attributes.light}} lux
             </div>
           </div>
         </li>
