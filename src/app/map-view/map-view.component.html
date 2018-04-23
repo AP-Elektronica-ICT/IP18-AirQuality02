@@ -21,14 +21,13 @@
         <table class="table table-hover">
           <thead>
             <tr>
-              <th>Room</th>
+              <th>Sensor</th>
               <th>{{variable}}</th>
             </tr>
           </thead>
-          <tbody *ngIf="sensors">
-            <tr *ngFor="let sensor of sensors.data; let i = index">
-              <!-- (click)="detailedData(rooms[i].room, i)" -->
-              <td>Room {{sensor.id}}</td>
+          <tbody *ngIf="sensors;">
+            <tr *ngFor="let sensor of sensors.data; let i = index" (click)="getDetailedData(i)"> <!-- (click)="detailedData(rooms[i].room, i)" -->
+              <td>Sensor {{sensor.id}}</td>
               <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}">{{getVariable(variable, i)}}</td>
             </tr>
           </tbody>
@@ -88,7 +87,7 @@
 
     </ng-template>
 
-    <div class="col-md-2" style="margin-top: 55px;" *ngIf="testarray[0]">
+    <div class="col-md-2" style="margin-top: 55px;">
       <!--Radio group-->
       <div class="form-group">
         <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="temperature" id="radio106" checked>
@@ -119,7 +118,7 @@
     </div>
 
     <!-- Detailed data information -->
-    <div class="col-md-4" style="margin-top: 55px;" *ngIf="sensors && testarray[0] && testarray[1]">
+    <div class="col-md-4" style="margin-top: 55px;">
       <ul class="list-group">
         <li class="list-group-item active">
           {{sensors.data[0].id}}
@@ -133,7 +132,7 @@
               Temperature
             </div>
             <div class="col-md-4">
-              {{testarray[1].data[0].attributes.temperature}}°c
+              {{testarray[id].data[0].attributes.temperature}}°c
             </div>
           </div>
         </li>
@@ -143,7 +142,7 @@
               Humidity
             </div>
             <div class="col-md-4">
-              {{testarray[1].data[0].attributes.humidity}}%
+              {{testarray[id].data[0].attributes.humidity}}%
             </div>
           </div>
         </li>
@@ -153,7 +152,7 @@
               CO2-level
             </div>
             <div class="col-md-4">
-              {{testarray[1].data[0].attributes.co2}} ppm
+              {{testarray[id].data[0].attributes.co2}} ppm
             </div>
           </div>
         </li>
@@ -163,7 +162,7 @@
               Sound-level
             </div>
             <div class="col-md-4">
-              {{testarray[1].data[0].attributes.sound}} dB
+              {{testarray[id].data[0].attributes.sound}} dB
             </div>
           </div>
         </li>
@@ -173,7 +172,7 @@
               Illuminance
             </div>
             <div class="col-md-4">
-              {{testarray[1].data[0].attributes.light}} lux
+              {{testarray[id].data[0].attributes.light}} lux
             </div>
           </div>
         </li>
