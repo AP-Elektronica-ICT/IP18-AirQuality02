@@ -41,14 +41,11 @@ import { SignupComponent } from './Signup/signup.component';
     ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot([
-      { path: "home", component: HomeComponent },
-      { path: "", redirectTo: "home", pathMatch: "full" },
-      /*{ path: "**", component: PageNotFoundComponent},*/
       { path: "map", component: MapViewComponent },
+      { path: "", redirectTo: "map", pathMatch: "full" },
+      /*{ path: "**", component: PageNotFoundComponent},*/
       { path: "data", component: DataComponent },
       { path: "settings", component: SettingsComponent },
-      { path: "admin", component: AdminSettingsComponent },
-      { path: "signup", component: SignupComponent },
     ], { useHash: false })
   ],
   schemas:[NO_ERRORS_SCHEMA],
