@@ -137,10 +137,11 @@ export class MapViewComponent implements OnInit {
     }
   }*/
 
-  getDetailedData(id){
-
+  getDetailedData(ID: number){
+    this.id = ID;
+    return this.id;
   }
-
+  id;
   templateCheck = true;
   variable = 'temperature';
 
