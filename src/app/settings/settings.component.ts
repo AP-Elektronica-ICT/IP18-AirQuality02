@@ -126,12 +126,39 @@ export class SettingsComponent implements OnInit {
         this.preferredSound = this._svc.roomsDefault[0].settings.soundlevel.preferred;
         this.preferredIllu = this._svc.roomsDefault[0].settings.illuminance.preferred;
 
+        //reset max values
+        this.maxTemp = this._svc.roomsDefault[0].settings.temperature.max;
+        this.maxHum = this._svc.roomsDefault[0].settings.humidity.max;
+        this.maxCO = this._svc.roomsDefault[0].settings.co2level.max;
+        this.maxSound = this._svc.roomsDefault[0].settings.soundlevel.max;
+        this.maxIllu = this._svc.roomsDefault[0].settings.illuminance.max;
+
+        //reset min values
+        this.minTemp = this._svc.roomsDefault[0].settings.temperature.min;
+        this.minHum = this._svc.roomsDefault[0].settings.humidity.min;
+        this.minSound = this._svc.roomsDefault[0].settings.soundlevel.min;
+        this.minIllu = this._svc.roomsDefault[0].settings.illuminance.min;
+
         //reset array with preferred values
         this.rooms[0].settings.temperature.preferred = parseInt(this.preferredTemp);
         this.rooms[0].settings.humidity.preferred = parseInt(this.preferredHum);
         this.rooms[0].settings.co2level.preferred = parseInt(this.preferredCO);
         this.rooms[0].settings.soundlevel.preferred = parseInt(this.preferredSound);
         this.rooms[0].settings.illuminance.preferred = parseInt(this.preferredIllu);
+
+        //reset array with max values
+        this.rooms[0].settings.temperature.max = parseInt(this.maxTemp);
+        this.rooms[0].settings.humidity.max = parseInt(this.maxHum);
+        this.rooms[0].settings.co2level.max = parseInt(this.maxCO);
+        this.rooms[0].settings.soundlevel.max = parseInt(this.maxSound);
+        this.rooms[0].settings.illuminance.max = parseInt(this.maxIllu);
+
+        //reset array with min values
+        this.rooms[0].settings.temperature.min = parseInt(this.minTemp);
+        this.rooms[0].settings.humidity.min = parseInt(this.minHum);
+        this.rooms[0].settings.soundlevel.min = parseInt(this.minSound);
+        this.rooms[0].settings.illuminance.min = parseInt(this.minIllu);
+
         console.log("room reset", this.rooms[0]);
         console.log("default room", this._svc.roomsDefault[0]);
         break;
