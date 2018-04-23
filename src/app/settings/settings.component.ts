@@ -11,7 +11,7 @@ import { Observer } from 'rxjs/Observer';
 export class SettingsComponent implements OnInit {
   private fragment: string;
   rooms: any[];
-  preferredTemp = "10";
+  preferredTemp = "11";
 
   constructor(private _svc: AirQualityDataService, private route: ActivatedRoute) {
     this.rooms = _svc.rooms;
