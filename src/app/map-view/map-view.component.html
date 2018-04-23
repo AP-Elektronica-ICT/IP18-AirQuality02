@@ -25,14 +25,14 @@
               <th>{{variable}}</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody *ngIf="sensors">
             <tr *ngFor="let sensor of sensors.data; let i = index"> <!-- (click)="detailedData(rooms[i].room, i)" -->
               <td>Room {{sensor.id}}</td>
               <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}">{{getVariable(variable, i)}}</td>
             </tr>
           </tbody>
         </table>
-        <div style="position:absolute; left:100px; top:450px">
+        <div>
           <img src="../../assets/Legend.PNG" width="300px" height="100px">
         </div>
       </div>
@@ -107,7 +107,8 @@
              height="32.339611"
              x="16.156303"
              y="35.06237"
-             style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+             style="fill:#c0c0c0;fill-opacity:1;stroke:#000000;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             [ngStyle]="{'background-color': getColor(variable, getVariable(variable, 0))}" />
           <rect
              id="rect3701"
              width="39.833458"
@@ -156,7 +157,7 @@
       
     </ng-template>
 
-    <div class="col-md-2" style="margin-top: 55px;">
+    <div class="col-md-2" style="margin-top: 55px;" *ngIf="testarray[0]">
       <!--Radio group-->
       <div class="form-group">
         <input name="102" type="radio" class="with-gap" [(ngModel)]="variable" value="temperature" id="radio106" checked>
@@ -187,7 +188,7 @@
     </div>
 
     <!-- Detailed data information -->
-    <div class="col-md-4" style="margin-top: 55px;">
+    <div class="col-md-4" style="margin-top: 55px;" *ngIf="sensors && testarray[0] && testarray[1]">
       <ul class="list-group">
         <li class="list-group-item active">
           {{sensors.data[0].id}}
@@ -201,7 +202,7 @@
               Temperature
             </div>
             <div class="col-md-4">
-              {{sensorAir3.data[0].attributes.temperature}}°c
+              {{testarray[1].data[0].attributes.temperature}}°c
             </div>
           </div>
         </li>
@@ -211,7 +212,7 @@
               Humidity
             </div>
             <div class="col-md-4">
-              {{sensorAir3.data[0].attributes.humidity}}%
+              {{testarray[1].data[0].attributes.humidity}}%
             </div>
           </div>
         </li>
@@ -221,7 +222,7 @@
               CO2-level
             </div>
             <div class="col-md-4">
-              {{sensorAir3.data[0].attributes.co2}} ppm
+              {{testarray[1].data[0].attributes.co2}} ppm
             </div>
           </div>
         </li>
@@ -231,7 +232,7 @@
               Sound-level
             </div>
             <div class="col-md-4">
-              {{sensorAir3.data[0].attributes.sound}} dB
+              {{testarray[1].data[0].attributes.sound}} dB
             </div>
           </div>
         </li>
@@ -241,7 +242,7 @@
               Illuminance
             </div>
             <div class="col-md-4">
-              {{sensorAir3.data[0].attributes.light}} lux
+              {{testarray[1].data[0].attributes.light}} lux
             </div>
           </div>
         </li>

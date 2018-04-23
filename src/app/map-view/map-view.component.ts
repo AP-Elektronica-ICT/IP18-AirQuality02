@@ -10,12 +10,16 @@ import { AirQualityDataService, IRootObject } from '../[Services]/air-quality-da
 export class MapViewComponent implements OnInit {
 
   ngOnInit() {
-    this._svc.getSensorDataAir3().subscribe(result => this.sensorAir3 = result);
     this._svc.getSensorsInfo().subscribe(result => this.sensors = result);
-    this._svc.getSensorDataAir2().subscribe(result => this.sensorAir2 = result);
+    this._svc.getSensorDataAir2().subscribe(result => this.testarray[0] = result); 
+    this._svc.getSensorDataAir3().subscribe(result => this.testarray[1] = result);
+    this._svc.getSensorDataAir4().subscribe(result => this.testarray[2] = result);
+    this._svc.getSensorDataAir5mini().subscribe(result => this.testarray[3] = result);
+    this._svc.getSensorDataAir6().subscribe(result => this.testarray[4] = result);
+    this._svc.getSensorDataAirProto().subscribe(result => this.testarray[5] = result);
    }
-
   warnings: any[];
+  testarray: any[] = [];
   sensorAir3: IRootObject;
   sensorAir2: IRootObject;
   sensors: IRootObject;
@@ -104,19 +108,19 @@ export class MapViewComponent implements OnInit {
     var _variable: string;
     switch (__variable) {
       case "temperature":
-        _variable = this.sensorAir3.data[index].attributes.temperature;
+        _variable = this.testarray[index].data[0].attributes.temperature;
         break;
       case "humidity":
-        _variable = this.sensorAir3.data[index].attributes.humidity;
+        _variable = this.testarray[index].data[0].attributes.humidity;
         break;
       case "co2level":
-        _variable = this.sensorAir3.data[index].attributes.co2;
+        _variable = this.testarray[index].data[0].attributes.co2;
         break;
       case "soundlevel":
-        _variable = this.sensorAir3.data[index].attributes.sound;
+        _variable = this.testarray[index].data[0].attributes.sound;
         break;
       case "illuminance":
-        _variable = this.sensorAir3.data[index].attributes.light;
+        _variable = this.testarray[index].data[0].attributes.light;
         break;
     }
     return _variable;
@@ -128,11 +132,14 @@ export class MapViewComponent implements OnInit {
     }
     for (var i = 0; i < this.rooms.length; i++) {
       if (this.rooms[i].room != id && this.rooms[i].hide == false && i != index) {
-        this.rooms[i].hide = true;
+
       }
     }
-
   }*/
+
+  getDetailedData(id){
+
+  }
 
   templateCheck = true;
   variable = 'temperature';

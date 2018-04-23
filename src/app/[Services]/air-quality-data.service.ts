@@ -7,24 +7,32 @@ import { Observable } from 'rxjs/Observable';
 export class AirQualityDataService {
 
   getSensorDataAir2(): Observable<IRootObject> {
-    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-2/data?from_date=2018-03-29T09:57&to_date=2018-3-29T09:58")
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-2/data?limit=1")
   }
 
   getSensorDataAir3(): Observable<IRootObject> {
-    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-3/data?from_date=2018-04-17T12:21&to_date=2018-4-17T12:22")
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-3/data?limit=1")
   }
 
   getSensorsInfo(): Observable<IRootObject> {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/devices")
   }
 
-  getTestSensorData(): Observable<IRootObject> {
-    return this._http.get<IRootObject>("")
+  getSensorDataAir4(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-4/data?limit=1")
   }
 
-  SensorsInfo: IRootObject;
-  SensorDataAir2: IRootObject;
-  SensorDataAir3: IRootObject;
+  getSensorDataAir5mini(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-mini5/data?limit=1");
+  }
+
+  getSensorDataAir6(): Observable<IRootObject>{
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-6/data?limit=1")
+  }
+
+  getSensorDataAirProto(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-proto/data?limit=1")
+  }
 
   rooms: any[] = [
     {
