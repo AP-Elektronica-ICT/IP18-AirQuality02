@@ -34,39 +34,39 @@
               <td>
                 <input type='textbox' size='2' maxlength='4' [(ngModel)]="preferredTemp" name=''>°c</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.humidity.preferred}}' name=''> %</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="preferredHum" name=''> %</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.co2level.preferred}}' name=''> ppm</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="preferredCO" name=''> ppm</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.soundlevel.preferred}}' name=''> dB</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="preferredSound" name=''> dB</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.illuminance.preferred}}' name=''> Lux</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="preferredIllu" name=''> Lux</td>
             </tr>
             <tr>
               <th scope="row">Max:</th>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.temperature.max}}' name=''> °c</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="maxTemp" name=''> °c</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.humidity.max}}' name=''> %</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="maxHum" name=''> %</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.co2level.max}}' name=''> ppm</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="maxCO" name=''> ppm</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.soundlevel.max}}' name=''> dB</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="maxSound" name=''> dB</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.illuminance.max}}' name=''> Lux</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="maxIllu" name=''> Lux</td>
             </tr>
             <tr>
               <th scope="row">Min:</th>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.temperature.min}}' name=''> °c</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="minTemp" name=''> °c</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.humidity.min}}' name=''> %</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="minHum" name=''> %</td>
               <td>
                 </td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.soundlevel.min}}' name=''> dB</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="minSound" name=''> dB</td>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.illuminance.min}}' name=''> Lux</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="minIllu" name=''> Lux</td>
             </tr>
             <tr>
               <th scope="row">Adjustments</th>
