@@ -11,28 +11,47 @@ import { Observer } from 'rxjs/Observer';
 export class SettingsComponent implements OnInit {
   private fragment: string;
   rooms: any[];
+  
   //preferred values
-  preferredTemp = "21";
-  preferredHum = "40";
-  preferredCO = "450";
-  preferredSound = "50";
-  preferredIllu = "500";
+  preferredTemp;
+  preferredHum;
+  preferredCO;
+  preferredSound;
+  preferredIllu;
 
   //max values
-  maxTemp = "23";
-  maxHum = "60";
-  maxCO = "750";
-  maxSound = "75";
-  maxIllu = "750";
+  maxTemp;
+  maxHum;
+  maxCO;
+  maxSound;
+  maxIllu;
 
   //min values
-  minTemp = "19";
-  minHum = "30";
-  minSound = "25";
-  minIllu = "100";
+  minTemp;
+  minHum;
+  minSound;
+  minIllu;
 
   constructor(private _svc: AirQualityDataService, private route: ActivatedRoute) {
     this.rooms = _svc.rooms;
+    this.preferredTemp = this.rooms[0].settings.temperature.preferred;
+    this.preferredHum = this.rooms[0].settings.humidity.preferred;
+    this.preferredCO = this.rooms[0].settings.co2level.preferred;
+    this.preferredSound = this.rooms[0].settings.soundlevel.preferred;
+    this.preferredIllu = this.rooms[0].settings.illuminance.preferred;
+
+    //max values
+    this.maxTemp = this.rooms[0].settings.temperature.max;
+    this.maxHum = this.rooms[0].settings.humidity.max;
+    this.maxCO = this.rooms[0].settings.co2level.max;
+    this.maxSound = this.rooms[0].settings.soundlevel.max;
+    this.maxIllu = this.rooms[0].settings.illuminance.max;
+
+    //min values
+    this.minTemp = this.rooms[0].settings.temperature.min;
+    this.minHum = this.rooms[0].settings.humidity.min;
+    this.minSound = this.rooms[0].settings.soundlevel.min;
+    this.minIllu = this.rooms[0].settings.illuminance.min;
   }
 
   ngOnInit() {
