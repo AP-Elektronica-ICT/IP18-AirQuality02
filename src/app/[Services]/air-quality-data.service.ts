@@ -18,6 +18,10 @@ export class AirQualityDataService {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/devices")
   }
 
+  getTestSensorData(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("")
+  }
+
   SensorsInfo: IRootObject;
   SensorDataAir2: IRootObject;
   SensorDataAir3: IRootObject;
