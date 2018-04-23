@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AirQualityDataService, IRootObject } from '../[Services]/air-quality-data.service';
 
 @Component({
   selector: 'app-data',
@@ -7,13 +8,52 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class DataComponent implements OnInit {
+  ngOnInit(){
+    this._svc.getSensorDataAir3().subscribe(result => this.sensorAir3 = result);
+  }
+
+  sensorAir3: IRootObject;
+  constructor(private _svc: AirQualityDataService) {
+
+  }
+
+  public sensorData: Array<any> = [
+    { data: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,], label: 'Temperature' },
+    { data: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,], label: 'Humidity' },
+    { data: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,], label: 'CO2-level' },
+    { data: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,], label: 'Sound-level' },
+    { data: [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,], label: 'Illuminance' }
+  ];
+
+  public loadData(): void {
+    for (let i = 0; i < this.sensorData[0].length; i++){
+      this.sensorData[0].data[i] = this.sensorAir3.data[i].attributes.temperature;
+    }
+    for (let i = 0; i < this.sensorData[1].length; i++){
+      this.sensorData[1].data[i] = this.sensorAir3.data[i].attributes.humidity;
+    }
+    for (let i = 0; i < this.sensorData[2].length; i++){
+      this.sensorData[2].data[i] = this.sensorAir3.data[i].attributes.co2;
+    }
+    for (let i = 0; i < this.sensorData[3].length; i++){
+      this.sensorData[3].data[i] = this.sensorAir3.data[i].attributes.sound;
+    }
+    for (let i = 0; i < this.sensorData[4].length; i++){
+      this.sensorData[4].data[i] = this.sensorAir3.data[i].attributes.light;
+    }
+    
+    this.lineChartData = this.sensorData;
+  }
+
   // lineChart
   public lineChartData: Array<any> = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-    { data: [18, 48, 77, 12, 100, 27, 40], label: 'Series C' }
+    { data: [65, 59, 80, 81, 56, 55, 40, 55], label: 'Temperature' },
+    { data: [28, 48, 40, 19, 86, 27, 90, 62], label: 'Humidity' },
+    { data: [18, 48, 77, 12, 100, 27, 40, 36], label: 'CO2-value' },
+    { data: [23, 69, 18, 22, 38, 27, 42, 45], label: 'Sound-value' },
+    { data: [94, 78, 77, 61, 65, 54, 63, 64], label: 'Illumination' }
   ];
-  public lineChartLabels: Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public lineChartLabels: Array<any> = ['-30 mins.',,,,, '-25 mins.',,,,, '-20 mins.',,,,, '-15 mins.',,,,, '-10 mins.',,,,, '-5 mins.',,,,, 'Now'];
   public lineChartOptions: any = {
     responsive: true
   };
@@ -44,20 +84,7 @@ export class DataComponent implements OnInit {
     }
   ];
   public lineChartLegend: boolean = true;
-  public lineChartType: string = 'line';
-
-  public randomize(): void {
-    let _lineChartData: Array<any> = new Array(this.lineChartData.length);
-    for (let i = 0; i < this.lineChartData.length; i++) {
-      _lineChartData[i] = { data: new Array(this.lineChartData[i].data.length), label: this.lineChartData[i].label };
-      for (let j = 0; j < this.lineChartData[i].data.length; j++) {
-        _lineChartData[i].data[j] = Math.floor((Math.random() * 100) + 1);
-      }
-    }
-    this.lineChartData = _lineChartData;
-  }
-
-  
+  public lineChartType: string = 'line';  
 
   // events
   public chartClicked(e: any): void {
@@ -68,9 +95,6 @@ export class DataComponent implements OnInit {
     console.log(e);
   }
 
-  ngOnInit(){
-    
-  }
 }
 
 
