@@ -70,11 +70,10 @@
             </tr>
             <tr>
               <th scope="row">Adjustments</th>
-              <td colspan="5"><button type="button" class="btn  btn-primary btn-sm" style="margin:0px;" (click)="Reset(rooms[i].id)">Reset Room {{room.id}} settings</button></td>
-            </tr>
-            <tr>
-              <th scope="row">save</th>
-              <td colspan="5"><button type="button" class="btn  btn-primary btn-sm" style="margin:0px;" (click)="Update(rooms[i].id)">Save Room {{room.id}} settings</button></td>
+              <td colspan="5">
+                <button type="button" class="btn  btn-primary btn-sm" style="margin:0px;" (click)="Reset(rooms[i].id)">Reset Room {{room.id}} settings</button>
+                <button type="button" class="btn  btn-primary btn-sm" style="margin:0px;" (click)="Update(rooms[i].id)">Save Room {{room.id}} settings</button>
+              </td>
             </tr>
           </tbody>
           <!--Table body-->
