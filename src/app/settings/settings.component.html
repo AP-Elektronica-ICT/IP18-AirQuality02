@@ -32,7 +32,7 @@
             <tr>
               <th scope="row">Preferred:</th>
               <td>
-                <input type='textbox' size='2' maxlength='4' value='{{room.settings.temperature.preferred}}' name=''>°c</td>
+                <input type='textbox' size='2' maxlength='4' [(ngModel)]="preferredTemp" name=''>°c</td>
               <td>
                 <input type='textbox' size='2' maxlength='4' value='{{room.settings.humidity.preferred}}' name=''> %</td>
               <td>
