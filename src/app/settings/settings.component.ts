@@ -11,7 +11,7 @@ import { Observer } from 'rxjs/Observer';
 export class SettingsComponent implements OnInit {
   private fragment: string;
   rooms: any[];
-  
+
   //preferred values
   preferredTemp;
   preferredHum;
@@ -78,6 +78,12 @@ export class SettingsComponent implements OnInit {
         this.rooms[0].settings.soundlevel.preferred = parseInt(this.preferredSound);
         this.rooms[0].settings.illuminance.preferred = parseInt(this.preferredIllu);
 
+        this._svc.rooms[0].settings.temperature.preferred = parseInt(this.preferredTemp);
+        this._svc.rooms[0].settings.humidity.preferred = parseInt(this.preferredHum);
+        this._svc.rooms[0].settings.co2level.preferred = parseInt(this.preferredCO);
+        this._svc.rooms[0].settings.soundlevel.preferred = parseInt(this.preferredSound);
+        this._svc.rooms[0].settings.illuminance.preferred = parseInt(this.preferredIllu);
+
         //max
         this.rooms[0].settings.temperature.max = parseInt(this.maxTemp);
         this.rooms[0].settings.humidity.max = parseInt(this.maxHum);
@@ -91,8 +97,10 @@ export class SettingsComponent implements OnInit {
         this.rooms[0].settings.soundlevel.min = parseInt(this.minSound);
         this.rooms[0].settings.illuminance.min = parseInt(this.minIllu);
 
+        prompt("Are you sure you want to save?")
         console.log("room update", this.rooms[0]);
         console.log("default room", this._svc.roomsDefault[0]);
+        console.log("service room", this._svc.rooms[0]);
         break;
       case "102":
         this.rooms[1] = this._svc.roomsDefault[1];
