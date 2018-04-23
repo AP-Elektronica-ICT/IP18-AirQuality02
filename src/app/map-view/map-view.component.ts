@@ -18,6 +18,7 @@ export class MapViewComponent implements OnInit {
     this._svc.getSensorDataAir6().subscribe(result => this.testarray[4] = result);
     this._svc.getSensorDataAirProto().subscribe(result => this.testarray[5] = result);
    }
+   
   warnings: any[];
   testarray: any[] = [];
   sensorAir3: IRootObject;
