@@ -9,10 +9,14 @@ import { AirQualityDataService, IRootObject } from '../[Services]/air-quality-da
 
 export class DataComponent implements OnInit {
   ngOnInit(){
-    this._svc.getSensorDataAir3Extended().subscribe(result => this.sensorAir3 = result);
+    this._svc.getSensorDataAir2Extended().subscribe(result => this.sensorarray[0] = result);
+    this._svc.getSensorDataAir3Extended().subscribe(result => this.sensorarray[1] = result);
+    this._svc.getSensorDataAir4Extended().subscribe(result => this.sensorarray[2] = result);
+    this._svc.getSensorDataAir5miniExtended().subscribe(result => this.sensorarray[3] = result);
+    this._svc.getSensorDataAir6Extended().subscribe(result => this.sensorarray[4] = result);
+    this._svc.getSensorDataAirProtoExtended().subscribe(result => this.sensorarray[5] = result);
   }
 
-  sensorAir3: IRootObject;
   constructor(private _svc: AirQualityDataService) {
     
   }
@@ -20,6 +24,8 @@ export class DataComponent implements OnInit {
   public sensorData: Array<any> = [
     { data: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], label: 'Data' }
   ];
+
+  sensorarray: any[] = [];
 
   averages: any[] = [
     {
@@ -31,33 +37,36 @@ export class DataComponent implements OnInit {
     }
   ];
 
-  public loadData(parameter: String) {
+  sensorid = 0;
+
+  public loadData(parameter: String, sensor_id) {
     for (let i = 0; i < 30; i++){
       switch (parameter) {
         case "temperature": {
-          this.sensorData[0].data[i] = this.sensorAir3.data[i].attributes.temperature;
+          this.sensorData[0].data[i] = this.sensorarray[sensor_id].data[i].attributes.temperature;
           break;
         }
         case "humidity": {
-          this.sensorData[0].data[i] = this.sensorAir3.data[i].attributes.humidity;
+          this.sensorData[0].data[i] = this.sensorarray[sensor_id].data[i].attributes.humidity;
           break;
         }
         case "co2-level": {
-          this.sensorData[0].data[i] = this.sensorAir3.data[i].attributes.co2;
+          this.sensorData[0].data[i] = this.sensorarray[sensor_id].data[i].attributes.co2;
           break;
         }
         case "sound-level": {
-          this.sensorData[0].data[i] = this.sensorAir3.data[i].attributes.sound;
+          this.sensorData[0].data[i] = this.sensorarray[sensor_id].data[i].attributes.sound;
           break;
         }
         case "illumination": {
-          this.sensorData[0].data[i] = this.sensorAir3.data[i].attributes.light;
+          this.sensorData[0].data[i] = this.sensorarray[sensor_id].data[i].attributes.light;
           break;
         }
       }
       
-      console.log(parameter);
+      console.log(parameter + ": " + i);
       console.log(this.sensorData[0].data[i]);
+      console.log(sensor_id);
     }
     
     this.lineChartData = this.sensorData;
@@ -72,7 +81,7 @@ export class DataComponent implements OnInit {
   public lineChartOptions: any = { responsive: true };
 
   public lineChartColors: Array<any> = [
-    { // grey
+    { // Grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
       pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -82,10 +91,10 @@ export class DataComponent implements OnInit {
     }
   ];
 
-  public lineChartLegend: boolean = true;
+  public lineChartLegend: boolean = false;
   public lineChartType: string = 'line';  
 
-  // events
+  // Events
   public chartClicked(e: any): void {
     console.log(e);
   }
@@ -94,18 +103,18 @@ export class DataComponent implements OnInit {
     console.log(e);
   }
 
-  public getAverages(): void {
+  public getAverages(sensor_id): void {
     this.averages[0].temperature = 0;
     this.averages[0].humidity = 0;
     this.averages[0].co2 = 0;
     this.averages[0].sound = 0;
     this.averages[0].light = 0;
-    for (let i = 0; i < this.sensorAir3.data.length; i++){
-      this.averages[0].temperature = this.averages[0].temperature + Number(this.sensorAir3.data[i].attributes.temperature);
-      this.averages[0].humidity = this.averages[0].humidity + Number(this.sensorAir3.data[i].attributes.humidity);
-      this.averages[0].co2 = this.averages[0].co2 + Number(this.sensorAir3.data[i].attributes.co2);
-      this.averages[0].sound = this.averages[0].sound + Number(this.sensorAir3.data[i].attributes.sound);
-      this.averages[0].light = this.averages[0].light + Number(this.sensorAir3.data[i].attributes.light);
+    for (let i = 0; i < this.sensorarray[sensor_id].data.length; i++){
+      this.averages[0].temperature = this.averages[0].temperature + Number(this.sensorarray[sensor_id].data[i].attributes.temperature);
+      this.averages[0].humidity = this.averages[0].humidity + Number(this.sensorarray[sensor_id].data[i].attributes.humidity);
+      this.averages[0].co2 = this.averages[0].co2 + Number(this.sensorarray[sensor_id].data[i].attributes.co2);
+      this.averages[0].sound = this.averages[0].sound + Number(this.sensorarray[sensor_id].data[i].attributes.sound);
+      this.averages[0].light = this.averages[0].light + Number(this.sensorarray[sensor_id].data[i].attributes.light);
     }
     this.averages[0].temperature = (this.averages[0].temperature / 30).toFixed(2);
     this.averages[0].humidity = (this.averages[0].humidity / 30).toFixed(2);
