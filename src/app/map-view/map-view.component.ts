@@ -18,7 +18,6 @@ export class MapViewComponent implements OnInit {
     this._svc.getSensorDataAir6().subscribe(result => this.testarray[4] = result);
     this._svc.getSensorDataAirProto().subscribe(result => this.testarray[5] = result);
    }
-   
   warnings: any[];
   testarray: any[] = [];
   sensorAir3: IRootObject;
@@ -127,17 +126,6 @@ export class MapViewComponent implements OnInit {
     return _variable;
   }
 
-  /*detailedData(id, index) {
-    if (this.rooms[index].room == id) {
-      this.rooms[index].hide = !this.rooms[index].hide;
-    }
-    for (var i = 0; i < this.rooms.length; i++) {
-      if (this.rooms[i].room != id && this.rooms[i].hide == false && i != index) {
-
-      }
-    }
-  }*/
-
   getDetailedData(ID: number){
     this.id = ID;
     return this.id;
@@ -145,6 +133,4 @@ export class MapViewComponent implements OnInit {
   id;
   templateCheck = true;
   variable = 'temperature';
-
-  
 }

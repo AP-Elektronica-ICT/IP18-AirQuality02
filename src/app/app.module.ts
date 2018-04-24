@@ -12,7 +12,6 @@ import { MapViewComponent } from './map-view/map-view.component';
 import { DataComponent } from './data/data.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminSettingsComponent } from './admin-settings/admin-settings.component';
-import { DetailedDataComponent } from './detailed-data/detailed-data.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AirQualityDataService } from './[Services]/air-quality-data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +29,6 @@ import { SignupComponent } from './Signup/signup.component';
     DataComponent,
     SettingsComponent,
     AdminSettingsComponent,
-    DetailedDataComponent,
     SignupComponent
   ],
   imports: [
