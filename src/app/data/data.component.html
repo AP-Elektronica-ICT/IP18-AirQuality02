@@ -102,4 +102,65 @@
       </div>
     </div>
   </div>
+  <div class="row">
+    <!-- Detailed data information -->
+    <div class="col-md-3" style="margin-top: -500px;">
+        <ul class="list-group">
+          <li class="list-group-item active">
+            Averages
+            <button style="float:right" (click)="getAverages()">Load Averages</button>
+          </li>
+          <li class="list-group-item li-fix">
+            <div class="row">
+              <div class="col-md-8">
+                Temperature
+              </div>
+              <div class="col-md-4">
+                {{averages[0].temperature}}°c
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item li-fix">
+            <div class="row">
+              <div class="col-md-8">
+                Humidity
+              </div>
+              <div class="col-md-4">
+                {{averages[0].humidity}}%
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item li-fix">
+            <div class="row">
+              <div class="col-md-8">
+                CO2-level
+              </div>
+              <div class="col-md-4">
+                {{averages[0].co2}} ppm
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item li-fix">
+            <div class="row">
+              <div class="col-md-8">
+                Sound-level
+              </div>
+              <div class="col-md-4">
+                {{averages[0].sound}} dB
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item li-fix">
+            <div class="row">
+              <div class="col-md-8">
+                Illuminance
+              </div>
+              <div class="col-md-4">
+                {{averages[0].light}} lux
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+  </div>
 </div>
