@@ -26,8 +26,8 @@
             </tr>
           </thead>
           <tbody *ngIf="sensors;">
-            <tr *ngFor="let sensor of sensors.data; let i = index" (click)="getDetailedData(i)"> <!-- (click)="detailedData(rooms[i].room, i)" -->
-              <td>Sensor {{sensor.id}}</td>
+            <tr *ngFor="let sensor of sensors.data; let i = index" (click)="getDetailedData(i)">
+              <td>Sensor {{testarray[i].data[0].id}}</td>
               <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}" [style.color]="getTextColor(variable, getVariable(variable, i))">{{getVariable(variable, i)}}</td>
             </tr>
           </tbody>
@@ -121,8 +121,8 @@
     <div class="col-md-4" style="margin-top: 55px;">
       <ul class="list-group">
         <li class="list-group-item active">
-          {{sensors.data[0].id}}
-          <span [routerLink]="['/settings']" fragment="{{sensors.data[0].id}}" style='float:right; cursor:pointer;'>
+          {{testarray[id].data[0].id}}
+          <span [routerLink]="['/settings']"  style='float:right; cursor:pointer;'>
             <i class="fa fa-gear" aria-hidden="true"></i>
           </span>
         </li>
