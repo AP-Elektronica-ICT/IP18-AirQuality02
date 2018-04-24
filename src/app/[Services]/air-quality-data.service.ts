@@ -6,8 +6,16 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class AirQualityDataService {
 
+  getSensorsInfo(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/devices")
+  }
+
   getSensorDataAir2(): Observable<IRootObject> {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-2/data?limit=1")
+  }
+
+  getSensorDataAir2Extended(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-2/data?limit=30")
   }
 
   getSensorDataAir3(): Observable<IRootObject> {
@@ -18,24 +26,36 @@ export class AirQualityDataService {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-3/data?limit=30")
   }
 
-  getSensorsInfo(): Observable<IRootObject> {
-    return this._http.get<IRootObject>("https://air.kiisu.club/v1/devices")
-  }
-
   getSensorDataAir4(): Observable<IRootObject> {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-4/data?limit=1")
+  }
+
+  getSensorDataAir4Extended(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-4/data?limit=30")
   }
 
   getSensorDataAir5mini(): Observable<IRootObject> {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-mini5/data?limit=1");
   }
 
+  getSensorDataAir5miniExtended(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-mini5/data?limit=30");
+  }
+
   getSensorDataAir6(): Observable<IRootObject>{
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-6/data?limit=1")
   }
 
+  getSensorDataAir6Extended(): Observable<IRootObject>{
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-6/data?limit=30")
+  }
+
   getSensorDataAirProto(): Observable<IRootObject> {
     return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-proto/data?limit=1")
+  }
+
+  getSensorDataAirProtoExtended(): Observable<IRootObject> {
+    return this._http.get<IRootObject>("https://air.kiisu.club/v1/device/air-proto/data?limit=30")
   }
 
   rooms: any[] = [
