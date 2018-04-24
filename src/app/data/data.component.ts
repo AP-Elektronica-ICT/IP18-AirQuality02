@@ -10,19 +10,6 @@ import { AirQualityDataService, IRootObject } from '../[Services]/air-quality-da
 export class DataComponent implements OnInit {
   ngOnInit(){
     this._svc.getSensorDataAir3Extended().subscribe(result => this.sensorAir3 = result);
-    
-    for (let i = 0; i < this.sensorAir3.data.length; i++){
-      this.averages[0].temperature = this.averages[0].temperature + this.sensorAir3.data[i].attributes.temperature;
-      this.averages[0].humidity = this.averages[0].humidity + this.sensorAir3.data[i].attributes.humidity;
-      this.averages[0].co2 = this.averages[0].co2 + this.sensorAir3.data[i].attributes.co2;
-      this.averages[0].sound = this.averages[0].sound + this.sensorAir3.data[i].attributes.sound;
-      this.averages[0].light = this.averages[0].light + this.sensorAir3.data[i].attributes.light;
-    }
-    this.averages[0].temperature = this.averages[0].temperature / 30;
-    this.averages[0].humidity = this.averages[0].humidity / 30;
-    this.averages[0].co2 = this.averages[0].co2 / 30;
-    this.averages[0].sound = this.averages[0].sound / 30;
-    this.averages[0].light = this.averages[0].light / 30;
   }
 
   sensorAir3: IRootObject;
@@ -105,6 +92,26 @@ export class DataComponent implements OnInit {
 
   public chartHovered(e: any): void {
     console.log(e);
+  }
+
+  public getAverages(): void {
+    this.averages[0].temperature = 0;
+    this.averages[0].humidity = 0;
+    this.averages[0].co2 = 0;
+    this.averages[0].sound = 0;
+    this.averages[0].light = 0;
+    for (let i = 0; i < this.sensorAir3.data.length; i++){
+      this.averages[0].temperature = this.averages[0].temperature + Number(this.sensorAir3.data[i].attributes.temperature);
+      this.averages[0].humidity = this.averages[0].humidity + Number(this.sensorAir3.data[i].attributes.humidity);
+      this.averages[0].co2 = this.averages[0].co2 + Number(this.sensorAir3.data[i].attributes.co2);
+      this.averages[0].sound = this.averages[0].sound + Number(this.sensorAir3.data[i].attributes.sound);
+      this.averages[0].light = this.averages[0].light + Number(this.sensorAir3.data[i].attributes.light);
+    }
+    this.averages[0].temperature = (this.averages[0].temperature / 30).toFixed(2);
+    this.averages[0].humidity = (this.averages[0].humidity / 30).toFixed(2);
+    this.averages[0].co2 = (this.averages[0].co2 / 30).toFixed(2);
+    this.averages[0].sound = (this.averages[0].sound / 30).toFixed(2);
+    this.averages[0].light = (this.averages[0].light / 30).toFixed(2);
   }
 
 }
