@@ -4,31 +4,31 @@
       <div class="row">
         <div class="col">
           <form>
-            <input name="room" type="radio" [(ngModel)]="sensorid" value="0" checked>
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="0" checked>
             <label for="radio1">Sensor 1</label><br>
             
-            <input name="room" type="radio" [(ngModel)]="sensorid" value="1">
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="1">
             <label for="radio2">Sensor 2</label><br>
 
-            <input name="room" type="radio" [(ngModel)]="sensorid" value="2">
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="2">
             <label for="radio3">Sensor 3</label>
           </form>
         </div>
         <div class="col">
           <form>
-            <input name="parameter" type="radio" value="temperature" (click)="loadData('temperature, sensorid')" checked>
-            <label for="temperature" (click)="loadData('temperature, sensorid')">Temperature</label><br>
+            <input name="parameter" type="radio" value="temperature" (click)="loadData('temperature', sensorid)" checked>
+            <label for="temperature" (click)="loadData('temperature', 'sensorid')">Temperature</label><br>
             
-            <input name="parameter" type="radio" (click)="loadData('humidity, sensorid')" value="humidity">
+            <input name="parameter" type="radio" (click)="loadData('humidity', sensorid)" value="humidity">
             <label for="humidity" (click)="loadData('humidity, sensorid')">Humidity</label><br>
             
-            <input name="parameter" type="radio" value="co2-level" (click)="loadData('co2-level, sensorid')">
-            <label for="co2-level" (click)="loadData('co2-level, sensorid')">CO2-level</label><br>
+            <input name="parameter" type="radio" value="co2-level" (click)="loadData('co2-level', sensorid)">
+            <label for="co2-level" (click)="loadData('co2-level', 'sensorid')">CO2-level</label><br>
 
-            <input name="parameter" type="radio" value="sound-level" (click)="loadData('sound-level, sensorid')">
+            <input name="parameter" type="radio" value="sound-level" (click)="loadData('sound-level', sensorid)">
             <label for="sound-level" (click)="loadData('sound-level, sensorid')">Sound-level</label><br>
 
-            <input name="parameter" type="radio" value="illumination" (click)="loadData('illumination, sensorid')">
+            <input name="parameter" type="radio" value="illumination" (click)="loadData('illumination', sensorid)">
             <label for="illumination" (click)="loadData('illumination, sensorid')">Illumination</label>
           </form>
         </div>
@@ -36,7 +36,7 @@
       <ul class="list-group">
           <li class="list-group-item active">
             Averages
-            <button style="float:right; margin:0px;" class="btn btn-primary btn-sm" (click)="getAverages(sensor_id)">Load Averages</button>
+            <button style="float:right; margin:0px;" class="btn btn-primary btn-sm" (click)="getAverages(sensorid)">Load Averages</button>
           </li>
           <li class="list-group-item li-fix">
             <div class="row">
