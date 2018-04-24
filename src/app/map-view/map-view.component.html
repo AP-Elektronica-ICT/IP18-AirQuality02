@@ -28,7 +28,7 @@
           <tbody *ngIf="sensors;">
             <tr *ngFor="let sensor of sensors.data; let i = index" (click)="getDetailedData(i)"> <!-- (click)="detailedData(rooms[i].room, i)" -->
               <td>Sensor {{sensor.id}}</td>
-              <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}">{{getVariable(variable, i)}}</td>
+              <td [ngStyle]="{'background-color': getColor(variable, getVariable(variable, i))}" [style.color]="getTextColor(variable, getVariable(variable, i))">{{getVariable(variable, i)}}</td>
             </tr>
           </tbody>
         </table>

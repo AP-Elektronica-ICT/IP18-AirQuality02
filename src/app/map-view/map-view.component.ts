@@ -27,12 +27,22 @@ export class MapViewComponent implements OnInit {
 
   }
 
+  getTextColor(variable, value) {
+    if(value < 100 && variable == "illuminance") {
+      return "white";
+    } else {
+      return "black";
+    }
+  }
+
   getColor(__variable, actual) {
     var hvalue: any;
     var svalue: any;
     var lvalue: any;
     var optimum: number;
     var colorSensitivity: number;
+    var whitetext: boolean;
+
     switch (__variable) {
       case "temperature":
         optimum = 21;
