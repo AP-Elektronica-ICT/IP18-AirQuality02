@@ -4,23 +4,23 @@
       <div class="row">
         <div class="col">
           <form>
-            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="0" checked>
-            <label for="radio1">Sensor 1</label><br>
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="0" checked (click)="getAverages(sensorid)">
+            <label for="radio1" (click)="getAverages(sensorid)">Sensor 1</label><br>
             
-            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="1">
-            <label for="radio2">Sensor 2</label><br>
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="1" (click)="getAverages(sensorid)">
+            <label for="radio2" (click)="getAverages(sensorid)">Sensor 2</label><br>
 
-            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="2">
-            <label for="radio3">Sensor 3</label><br>
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="2" (click)="getAverages(sensorid)">
+            <label for="radio3" (click)="getAverages(sensorid)">Sensor 3</label><br>
 
-            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="3">
-            <label for="radio4">Sensor 4</label><br>
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="3" (click)="getAverages(sensorid)">
+            <label for="radio4" (click)="getAverages(sensorid)">Sensor 4</label><br>
 
-            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="4">
-            <label for="radio5">Sensor 5</label><br>
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="4" (click)="getAverages(sensorid)">
+            <label for="radio5" (click)="getAverages(sensorid)">Sensor 5</label><br>
 
-            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="5">
-            <label for="radio6">Sensor 6</label><br>
+            <input name="room" type="radio" [(ngModel)]="sensorid" [value]="5" (click)="getAverages(sensorid)">
+            <label for="radio6" (click)="getAverages(sensorid)">Sensor 6</label><br>
           </form>
         </div>
         <div class="col">

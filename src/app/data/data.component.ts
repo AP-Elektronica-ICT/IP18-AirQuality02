@@ -63,7 +63,7 @@ export class DataComponent implements OnInit {
           break;
         }
       }
-      
+
       console.log(parameter + ": " + i);
       console.log(this.sensorData[0].data[i]);
       console.log(sensor_id);

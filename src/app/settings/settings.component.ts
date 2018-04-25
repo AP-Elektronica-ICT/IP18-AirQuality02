@@ -97,7 +97,6 @@ export class SettingsComponent implements OnInit {
         this.rooms[0].settings.soundlevel.min = parseInt(this.minSound);
         this.rooms[0].settings.illuminance.min = parseInt(this.minIllu);
 
-        prompt("Are you sure you want to save?")
         console.log("room update", this.rooms[0]);
         console.log("default room", this._svc.roomsDefault[0]);
         console.log("service room", this._svc.rooms[0]);
